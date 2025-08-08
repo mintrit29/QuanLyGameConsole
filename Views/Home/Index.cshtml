@@ -1,0 +1,198 @@
+﻿@{
+    ViewData["Title"] = "Trang chủ";
+}
+@model List<Slider>
+
+@await Html.PartialAsync("_HeroSlider", Model)
+<!-- End Hero Slider Section-->
+<!-- Start Product Default Slider Section -->
+<div class="product-default-slider-section section-top-gap-100 section-fluid">
+    <!-- Start Section Content Text Area -->
+    <div class="section-title-wrapper" data-aos="fade-up" data-aos-delay="0">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="section-content-gap">
+                        <div class="secton-content">
+                            <h3 class="section-title">Sản Phẩm Mới</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Start Section Content Text Area -->
+    @await Component.InvokeAsync("FeaturedProduct")
+    <!-- End Product Default Slider Section -->
+    <!-- Start Banner Section -->
+    <div class="banner-section section-top-gap-100">
+        <div class="banner-wrapper">
+            <div class="container-fluid">
+                <div class="row mb-n6">
+                    <div class="col-lg-6 col-12 mb-6">
+                        <!-- Start Banner Single Item -->
+                        <div class="banner-single-item banner-style-1 banner-animation img-responsive aos-init aos-animate" data-aos="fade-up" data-aos-delay="0">
+                            <div class="image">
+                                <img src="~/images/Nam.jpg" alt="" style="width: 600px; height: 400px">
+                            </div>
+                            <div class="content">
+                                <h4 class="title text-white">
+                                    Đồng hồ nam
+                                </h4>
+                                <h5 class="sub-title text-white">Phái đàn ông</h5>
+                                <a asp-controller="Product" asp-action="Index" asp-route-gender="1" class="btn btn-lg btn-light icon-space-left"><span class="d-flex align-items-center">Xem ngay <i class="ion-ios-arrow-thin-right"></i></span></a>
+                            </div>
+                        </div>
+                        <!-- End Banner Single Item -->
+                    </div>
+                    <div class="col-lg-6 col-12 mb-6">
+                        <!-- Start Banner Single Item -->
+                        <div class="banner-single-item banner-style-1 banner-animation img-responsive aos-init aos-animate" data-aos="fade-up" data-aos-delay="0">
+                            <div class="image">
+                                <img src="~/images/Nu.jpg" alt="" style="width: 600px; height: 400px">
+                            </div>
+                            <div class="content">
+                                <h4 class="title text-white">
+                                    Đông hồ nữ
+                                </h4>
+                                <h5 class="sub-title text-white">Phái nữ</h5>
+                                <a asp-controller="Product" asp-action="Index" asp-route-gender="0" class="btn btn-lg btn-light icon-space-left"><span class="d-flex align-items-center">Xem ngay <i class="ion-ios-arrow-thin-right"></i></span></a>
+                            </div>
+                        </div>
+                        <!-- End Banner Single Item -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <!-- End Banner Section -->
+    <!-- Start Product Default Slider Section -->
+    <div class="product-default-slider-section section-fluid section-inner-bg">
+        <!-- Start Section Content Text Area -->
+        <div class="section-title-wrapper" data-aos="fade-up" data-aos-delay="0">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="section-content-gap">
+                            <div class="secton-content">
+                                <h3 class="section-title">SẢN PHẨM BÁN CHẠY</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Start Section Content Text Area -->
+        @await Component.InvokeAsync("BestSellerProduct")
+    </div>
+
+    <!-- End Product Default Slider Section -->
+    <!-- Start Service Section -->
+    <div class="service-promo-section section-top-gap-100">
+        <div class="service-wrapper">
+            <div class="container">
+                <div class="row">
+                    <!-- Start Service Promo Single Item -->
+                    <div class="col-lg-4 col-sm-6 col-12">
+                        <div class="service-promo-single-item" data-aos="fade-up" data-aos-delay="0">
+                            <div class="image">
+                                <img src="~/assets/images/icons/service-promo-5.png" alt="">
+                            </div>
+                            <div class="content">
+                                <h6 class="title">MIỄN PHÍ SHIP</h6>
+                                <p>Miễn ship toàn quốc</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End Service Promo Single Item -->
+                    <!-- Start Service Promo Single Item -->
+                    <div class="col-lg-4 col-sm-6 col-12">
+                        <div class="service-promo-single-item" data-aos="fade-up" data-aos-delay="200">
+                            <div class="image">
+                                <img src="~/assets/images/icons/service-promo-6.png" alt="">
+                            </div>
+                            <div class="content">
+                                <h6 class="title">30 NGÀY HOÀN TIỀN</h6>
+                                <p>Đảm bảo hài lòng 100% hoặc được hoàn lại tiền trong vòng 30 ngày!</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End Service Promo Single Item -->
+                    <!-- Start Service Promo Single Item -->
+                    <div class="col-lg-4 col-sm-6 col-12">
+                        <div class="service-promo-single-item" data-aos="fade-up" data-aos-delay="400">
+                            <div class="image">
+                                <img src="~/images/support.png" alt="" style="width: 77px; height: 71px">
+                            </div>
+                            <div class="content">
+                                <h6 class="title">HỖ TRỢ 24/7</h6>
+                                <p>Nhóm hỗ trợ khách hàng của chúng tôi có sẵn 24/7 để giúp bạn với bất kỳ khuất mắc nào</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Service Section -->
+@* @section Scripts *@
+@* { *@
+@*     <script> *@
+@*         $(document).ready(function () { *@
+@*             $('.add-to-cart').click(function (e) { *@
+@*                 e.preventDefault(); *@
+@*                 var $this = $(this); *@
+@*                 var slug = $(this).data('slug'); *@
+@*                 var quantity = $(this).data('quantity'); *@
+@* *@
+@*                 $.ajax({ *@
+@*                     url: '@Url.Action("AddToCart", "Cart")', *@
+@*                     type: 'POST', *@
+@*                     data: { slug: slug, quantity: quantity }, *@
+@*                     success: function (result) { *@
+@*                         if (result.success) { *@
+@*                             Toastify({ *@
+@*                                 text: result.message, *@
+@*                                 duration: 3000, *@
+@*                                 close: true, *@
+@*                                 stopOnFocus: true, *@
+@*                                 gravity: "top", *@
+@*                                 position: "right", *@
+@*                                 style: { *@
+@*                                     background: "#5cb85c", *@
+@*                                 } *@
+@*                             }).showToast(); *@
+@*                             updateCartSummary(); *@
+@*                              *@
+@*                         } else { *@
+@*                             Toastify({ *@
+@*                                 text: result.message, *@
+@*                                 duration: 2000, *@
+@*                                 close: true, *@
+@*                                 gravity: "top", *@
+@*                                 position: "right", *@
+@*                                 style: { *@
+@*                                     background: "#FF0000" *@
+@*                                 } *@
+@*                             }).showToast(); *@
+@*                         } *@
+@*                     }, *@
+@*                     error: function () { *@
+@*                         Toastify({ *@
+@*                             text: 'Có lỗi xảy ra khi thêm sản phẩm vào giỏ hàng.', *@
+@*                             duration: 2000, *@
+@*                             close: true, *@
+@*                             gravity: "top", *@
+@*                             position: "right", *@
+@*                             style: { *@
+@*                                 background: "#FF0000", *@
+@*                             } *@
+@*                         }).showToast(); *@
+@*                     } *@
+@*                 }); *@
+@*             }); *@
+@*         }); *@
+@*     </script> *@
+@* } *@

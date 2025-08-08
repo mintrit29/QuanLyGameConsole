@@ -1,0 +1,176 @@
+﻿@{
+	ViewData["Title"] = "Quản lý liên hệ";
+}
+@model IEnumerable<QuanLyGameConsole.Models.Contact>
+<div class="container-xl">
+
+	<div class="row g-3 mb-4 align-items-center justify-content-between">
+		<div class="col-auto">
+			<h1 class="app-page-title mb-0">Liên hệ</h1>
+
+
+		</div>
+		<div class="col-auto">
+			<div class="page-utilities">
+				<div class="row g-2 justify-content-start justify-content-md-end align-items-center">
+					<div class="col-auto">
+						<form class="table-search-form row gx-1 align-items-center">
+							<div class="col-auto">
+								<input type="text" id="search-orders" name="searchorders" class="form-control search-orders" placeholder="Tìm kiếm">
+							</div>
+							<div class="col-auto">
+								<button type="submit" class="btn app-btn-secondary">Tìm kiếm</button>
+							</div>
+						</form>
+					</div><!--//row-->
+				</div><!--//table-utilities-->
+			</div><!--//col-auto-->
+		</div><!--//row-->
+
+		<div class="tab-content" id="orders-table-tab-content">
+			<div class="tab-pane fade show active" role="tabpanel">
+				<div class="app-card app-card-orders-table shadow-sm mb-5">
+					<div class="app-card-body">
+						<div class="table-responsive">
+							<table class="table app-table-hover mb-0 text-left">
+								<thead>
+									<tr>
+										<th class="cell">Họ Tên</th>
+										<th class="cell">Email</th>
+										<th class="cell">Tiêu đề</th>
+										<th class="cell">Ghi chú</th>
+										<th class="cell">Trạng thái</th>
+
+									</tr>
+								</thead>
+								<tbody>
+									@if (Model != null && Model.Any())
+									{
+										@foreach (var contact in Model)
+										{
+											<tr>
+												<td class="cell">@contact.FullName</td>
+												<td class="cell">@contact.Email</td>
+												<td class="cell">@contact.Subject</td>
+												<td class="cell">@contact.Note</td>
+												<td class="cell">
+												@if (contact.Status == 0)
+													{
+														<span class="badge bg-warning">Chưa xử lý</span>
+													}
+													else
+													{
+														<span class="badge bg-success">Đã xử lý</span>
+													}
+												</td>
+												<td class="cell">
+													<a class="btn editContact" data-bs-toggle="modal" data-bs-target="#editContactModal" data-id="@contact.ContactId" data-status="@contact.Status"><i class="bi bi-pencil-square" style="font-size: 1.2rem"></i></a>
+													    <form method="post" asp-action="Delete" asp-controller="Contact"  style="display:inline-block;" onsubmit="return confirm('Bạn có chắc chắn muốn xoá liên hệ này chứ?');">
+															<input type="hidden" name="id" value="@contact.ContactId"/>
+															<button type="submit" class="btn">
+																<i class="bi bi-trash" style="font-size: 1.2rem"></i>
+															</button>
+														</form>
+												</td>
+											</tr>
+										}
+									}
+									else
+									{
+										<tr>
+											<td class="cell text-center" colspan="5">Không có dữ liệu</td>
+										</tr>
+									}
+								</tbody>
+							</table>
+						</div><!--//table-responsive-->
+
+					</div><!--//app-card-body-->
+				</div><!--//app-card-->
+
+			</div><!--//tab-pane-->
+		</div><!--//container-fluid-->
+	</div>
+</div>
+
+<div class="modal fade" id="editContactModal" tabindex="-1" aria-labelledby="editContactModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="editContactModalLabel">Cập nhật trạng thái</h5>
+				<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+			</div>
+			<form id="Update">
+				<div class="modal-body">
+					<div class="mb-3">
+						<label for="status" class="form-label">Trạng thái</label>
+						<select class="form-select" id="status" name="status" required>
+							<option value="">Chọn trạng thái</option>
+							<option value="0">Chưa xử lý</option>
+							<option value="1">Đã xử lý</option>
+						</select>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
+					<button type="submit" class="btn btn-primary">Cập nhật</button>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+
+@section Scripts {
+	<script>
+		$(document).ready(function() {
+			var contactId;
+
+			$('.editContact').click(function() {
+				contactId = $(this).data('id');
+				var status = $(this).data('status');
+				$('#status').val(status);
+			});
+
+			$('#Update').submit(function(e) {
+				e.preventDefault();
+
+				var status = $('#status').val();
+
+				$.ajax({
+					url: '/Admin/Contact/Update',
+					type: 'POST',
+					data: {
+						id: contactId,
+						status: status
+					},
+					success: function(response) {
+						if(response.success) {
+							$('#editContactModal').modal('hide');
+							Swal.fire({
+								title: 'Thành công',
+								text: response.message,
+								icon: 'success',
+								confirmButtonText: 'OK'
+							}).then((result) => {
+								if(result.isConfirmed)
+								{
+									 location.reload();
+								}
+							})
+						} else {
+							Swal.fire({
+								title: 'Lỗi!',
+								text: response.message,
+								icon: 'error',
+								confirmButtonText: 'OK'
+							});
+						}
+					},
+					error: function() {
+						console.log("Đã có lỗi xảy ra")
+					}
+				});
+			});
+		});
+	</script>
+}

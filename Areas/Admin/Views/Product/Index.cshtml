@@ -1,0 +1,114 @@
+﻿@model IEnumerable<QuanLyGameConsole.Models.Product>
+
+@{
+    ViewData["Title"] = "Danh sách sản phẩm";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+@if (TempData["success"] != null)
+{
+    <div class="alert alert-success">
+        @TempData["success"]
+    </div>
+}
+
+@if (TempData["error"] != null)
+{
+    <div class="alert alert-danger">
+        @TempData["error"]
+    </div>
+}
+
+<a href="@Url.Action("Edit", "Product", new { id = 0 })" class="btn btn-primary">Thêm sản phẩm mới</a>
+<table class="table table-bordered mt-3">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Hình ảnh</th>
+            <th>Tên sản phẩm</th>
+            <th>Danh mục</th>
+            <th>Thương hiệu</th>
+            <th>Giá</th>
+            <th>Số lượng</th>
+            <th>Trạng thái</th>
+            <th>Chỉnh sửa</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var product in Model)
+        {
+            <tr>
+                <td>@product.ProductId</td>
+                <td>
+                    <img src="@product.Image" alt="@product.ProductName" style="width: 50px; height: 50px; object-fit: cover;" />
+                </td>
+                <td>@product.ProductName</td>
+                <td>@product.Category?.CategoryName</td>
+                <td>@product.Brand?.BrandId</td>
+                <td>@product.Price</td>
+                <td>@product.Quantity</td>
+                <td>
+                    @if (product.Status == 1)
+                    {
+                        <span class="badge bg-success">Hiển thị</span>
+                    }
+                    else
+                    {
+                        <span class="badge bg-danger">Ẩn</span>
+                    }
+                </td>
+                <td>
+                    <a href="@Url.Action("Edit", "Product", new { id = product.ProductId })" class="btn btn-warning">Chỉnh sửa</a>
+                </td>
+            </tr>
+        }
+        @foreach (var product in Model)
+        {
+            <tr>
+                <td>@product.ProductId</td>
+                <td>@product.ProductName</td>
+                <td>
+                    @if (product.Status == 1)
+                    {
+                        <span class="badge badge-success">Hiển thị</span>
+                    }
+                    else
+                    {
+                        <span class="badge badge-danger">Ẩn</span>
+                    }
+                </td>
+                <td>
+                    <!-- Nút Ẩn -->
+                    @if (product.Status == 1)
+                    {
+                        <form asp-action="HideProduct" asp-route-id="@product.ProductId" method="post">
+                            <button type="submit" class="btn btn-warning">Ẩn sản phẩm</button>
+                        </form>
+                    }
+                    else
+                    {
+                        <form asp-action="ShowProduct" asp-route-id="@product.ProductId" method="post">
+                            <button type="submit" class="btn btn-success">Hiển thị lại sản phẩm</button>
+                        </form>
+                    }
+                </td>
+            </tr>
+        }
+        @foreach (var product in Model.Where(p => p.Status == 1))  
+{
+    <tr>
+        <td>@product.ProductId</td>
+        <td>@product.ProductName</td>
+        <td>
+            <span class="badge badge-success">Hiển thị</span>
+        </td>
+        <td>
+            <!-- Nút Ẩn -->
+            <form asp-action="HideProduct" asp-route-id="@product.ProductId" method="post">
+                <button type="submit" class="btn btn-warning">Ẩn sản phẩm</button>
+            </form>
+        </td>
+    </tr>
+}
+</table>

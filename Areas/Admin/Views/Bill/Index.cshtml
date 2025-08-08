@@ -1,0 +1,129 @@
+﻿@{
+	ViewData["Title"] = "Quản lý đơn hàng";
+}
+<div class="container-xl">
+
+	<div class="row g-3 mb-4 align-items-center justify-content-between">
+		<div class="col-auto">
+			<h1 class="app-page-title mb-0">Đơn hàng</h1>
+
+
+		</div>
+		<div class="col-auto">
+			<div class="page-utilities">
+				<div class="row g-2 justify-content-start justify-content-md-end align-items-center">
+					<div class="col-auto">
+						<form class="table-search-form row gx-1 align-items-center">
+							<div class="col-auto">
+								<input type="text" id="search-orders" name="searchorders" class="form-control search-orders" placeholder="Tìm kiếm">
+							</div>
+							<div class="col-auto">
+								<button type="submit" class="btn app-btn-secondary">Tìm kiếm</button>
+							</div>
+						</form>
+					</div><!--//row-->
+				</div><!--//table-utilities-->
+			</div><!--//col-auto-->
+		</div><!--//row-->
+
+		<div class="tab-content" id="orders-table-tab-content">
+			<div class="tab-pane fade show active" role="tabpanel">
+				<div class="app-card app-card-orders-table shadow-sm mb-5">
+					<div class="app-card-body">
+						<div class="table-responsive">
+							<table class="table app-table-hover mb-0 text-left">
+								<thead>
+									<tr>
+										<th class="cell">Id</th>
+										<th class="cell">Khách hàng</th>
+										<th class="cell">Ngày tạo</th>
+										<th class="cell">Loại thanh toán</th>
+										<th class="cell">Trạng thái</th>
+										<th class="cell">Tổng tiền</th>
+										<th class="cell">Hành động</th>
+
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td class="cell">1</td>
+										<td class="cell">Nguyễn Văn Linh</td>
+										<td class="cell">31-01-2024</td>
+										<td class="cell">COD</td>
+										<td class="cell">Chờ xác nhận</td>
+										<td class="cell">2190000</td>
+										<td class="cell">
+											<a class="btn" href="#"><i class="bi bi-pencil-square" style="font-size: 1.2rem"></i></a>
+											<a class="btn" href="#"><i class="bi bi-trash" style="font-size: 1.2rem"></i></a>
+										</td>
+
+									</tr>
+								</tbody>
+								<tbody>
+									<tr>
+										<td class="cell">2</td>
+										<td class="cell">Lê Ngọc Hiếu</td>
+										<td class="cell">1-01-2024</td>
+										<td class="cell">Ví Momo</td>
+										<td class="cell">Đã xác nhận</td>
+										<td class="cell">738775563</td>
+										<td class="cell">
+											<a class="btn" href="#"><i class="bi bi-pencil-square" style="font-size: 1.2rem"></i></a>
+											<a class="btn" href="#"><i class="bi bi-trash" style="font-size: 1.2rem"></i></a>
+										</td>
+
+									</tr>
+								</tbody>
+								<tbody>
+									<tr>
+										<td class="cell">3</td>
+										<td class="cell">Huỳnh Mạnh Diển</td>
+										<td class="cell">2-01-2024</td>
+										<td class="cell">COD</td>
+										<td class="cell">Hoàn thành</td>
+										<td class="cell">886000</td>
+										<td class="cell">
+											<a class="btn" href="#"><i class="bi bi-pencil-square" style="font-size: 1.2rem"></i></a>
+											<a class="btn" href="#"><i class="bi bi-trash" style="font-size: 1.2rem"></i></a>
+										</td>
+
+									</tr>
+								</tbody>
+								<tbody>
+									<tr>
+										<td class="cell">4</td>
+										<td class="cell">Trương Quốc Huy</td>
+										<td class="cell">31-01-2024</td>
+										<td class="cell">Ví Momo</td>
+										<td class="cell">Đã huỷ</td>
+										<td class="cell">242000000</td>
+										<td class="cell">
+											<a class="btn" href="#"><i class="bi bi-pencil-square" style="font-size: 1.2rem"></i></a>
+											<a class="btn" href="#"><i class="bi bi-trash" style="font-size: 1.2rem"></i></a>
+										</td>
+
+									</tr>
+								</tbody>
+							</table>
+						</div><!--//table-responsive-->
+
+					</div><!--//app-card-body-->
+				</div><!--//app-card-->
+				@* <nav class="app-pagination"> *@
+				@* 	<ul class="pagination justify-content-center"> *@
+				@* 		<li class="page-item disabled"> *@
+				@* 			<a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a> *@
+				@* 		</li> *@
+				@* 		<li class="page-item active"><a class="page-link" href="#">1</a></li> *@
+				@* 		<li class="page-item"><a class="page-link" href="#">2</a></li> *@
+				@* 		<li class="page-item"><a class="page-link" href="#">3</a></li> *@
+				@* 		<li class="page-item"> *@
+				@* 			<a class="page-link" href="#">Next</a> *@
+				@* 		</li> *@
+				@* 	</ul> *@
+				@* </nav><!--//app-pagination--> *@
+
+			</div><!--//tab-pane-->
+		</div><!--//container-fluid-->
+	</div>
+</div>
