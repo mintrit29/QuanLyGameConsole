@@ -112,7 +112,7 @@ namespace QuanLyGameConsole.Controllers
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Order(int id)
+        public async Task<IActionResult> CancelOrder(int id)
         {
             var bill = await _context.Bills.FirstOrDefaultAsync(b => b.BillId == id);
 
@@ -121,20 +121,17 @@ namespace QuanLyGameConsole.Controllers
                 return NotFound();
             }
 
-            if (bill.Status == 2)
+            if (bill.Status == 2) // Giữ lại logic không cho hủy đơn hàng đã thanh toán
             {
-                TempData["error"] = "Đơn hàng đã thanh toán, không thể hủy.";
+                TempData["error"] = "Đơn hàng đã thanh toán, không thể xóa.";
                 return RedirectToAction("Order");
             }
 
-            bill.Status = 3;
-
-            // Cập nhật trạng thái đơn hàng
-            _context.Bills.Update(bill);
+            // Xóa đơn hàng khỏi database
+            _context.Bills.Remove(bill);
             await _context.SaveChangesAsync();
 
-
-            TempData["success"] = "Đơn hàng đã được hủy thành công.";
+            TempData["success"] = "Đơn hàng đã được xóa thành công.";
 
             return RedirectToAction("Order");
         }

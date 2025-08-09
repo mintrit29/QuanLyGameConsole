@@ -110,10 +110,11 @@
                                                         @* <a href="@Url.Action("Detail", "Order", new { id = bill.BillId })" class="view">Xem</a> *@
                                                     @if (bill.Status != 3 && bill.Status != 2)
                                                     {
-                                                            <form method="post" action="@Url.Action("Order", "Account")" style="display:inline;">
-                                                                <input type="hidden" name="id" value="@bill.BillId" />
-                                                                <button type="submit" class="btn btn-black-default-hover btn-sm" onclick="return confirm('Bạn có chắc muốn hủy đơn hàng này?');">Hủy</button>
-                                                            </form>
+                                                        <form method="post" action="@Url.Action("CancelOrder", "Account")" style="display:inline;">
+                                                            @Html.AntiForgeryToken()
+                                                            <input type="hidden" name="id" value="@bill.BillId" />
+                                                            <button type="submit" class="btn btn-black-default-hover btn-sm" onclick="return confirm('Bạn có chắc muốn hủy đơn hàng này?');">Hủy</button>
+                                                        </form>
                                                         }
                                                    </td>
                                             </tr>
