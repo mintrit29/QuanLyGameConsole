@@ -183,6 +183,34 @@ namespace QuanLyGameConsole.Controllers
 
             return Json(new { success = true, message = "Đã thêm vào danh sách yêu thích!" });
         }
+        [HttpPost] // Chỉ cho phép truy cập bằng phương thức POST từ JavaScript
+        public async Task<IActionResult> RemoveFavorite(int productId)
+        {
+            // Lấy ID của khách hàng đang đăng nhập
+            var customerIdClaim = User.Claims.FirstOrDefault(c => c.Type == "CustomerId");
+            if (customerIdClaim == null)
+            {
+                return Json(new { success = false, message = "Bạn cần đăng nhập để thực hiện hành động này." });
+            }
+            int customerId = int.Parse(customerIdClaim.Value);
+
+            // Tìm sản phẩm yêu thích cụ thể của khách hàng này
+            var favoriteItem = await _context.Favorites
+                .FirstOrDefaultAsync(f => f.CustomerId == customerId && f.ProductId == productId);
+
+            if (favoriteItem == null)
+            {
+                // Nếu không tìm thấy, trả về lỗi
+                return Json(new { success = false, message = "Không tìm thấy sản phẩm trong danh sách yêu thích." });
+            }
+
+            // Nếu tìm thấy, tiến hành xóa
+            _context.Favorites.Remove(favoriteItem);
+            await _context.SaveChangesAsync();
+
+            // Trả về thông báo thành công
+            return Json(new { success = true, message = "Đã xóa sản phẩm khỏi danh sách yêu thích." });
+        }
 
         public async Task<IActionResult> Logout()
         {

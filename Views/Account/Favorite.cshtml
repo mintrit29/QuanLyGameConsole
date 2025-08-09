@@ -49,7 +49,8 @@
                                     <!-- Start Wishlist Single Item-->
                                     @foreach (var item in Model)
                                     {
-                                        <tr>
+                                        <tr id="favorite-item-@item.ProductId">
+
                                             <td class="product_thumb">
                                                 <a href="#">
                                                     <img src="~/images/@(item.Image ?? "default-image.png")" alt="@item.Name" />
@@ -69,7 +70,7 @@
                                                 </div>
                                             </td>
                                             <td class="product_remove">
-                                                <a href="/Account/RemoveFavorite?productId=@item.ProductId">
+                                                <a href="#" class="remove-favorite-btn" data-productid="@item.ProductId">
                                                     <i class="fa fa-trash-o"></i>
                                                 </a>
                                             </td>
@@ -84,3 +85,68 @@
         </div>
     </div> <!-- End Cart Table -->
 </div> <!-- ...:::: End Wishlist Section:::... -->
+@section Scripts
+{
+    <!-- Mã JavaScript cho việc thêm vào giỏ hàng của bạn đã có ở đây... -->
+    <script>
+        $(document).ready(function () {
+
+            // ===== ĐOẠN MÃ CHO NÚT THÊM VÀO GIỎ HÀNG (GIỮ NGUYÊN) =====
+            $('.add-to-cart').click(function (e) {
+                // ... mã của bạn
+            });
+
+            // ===== THÊM ĐOẠN MÃ MỚI NÀY CHO NÚT XÓA YÊU THÍCH =====
+            $('.remove-favorite-btn').click(function (e) {
+                e.preventDefault(); // Ngăn trang tải lại
+
+                var productId = $(this).data('productid');
+                var button = $(this); // Lưu lại nút đã nhấn
+
+                $.ajax({
+                    url: '@Url.Action("RemoveFavorite", "Account")', // Gọi đến action vừa tạo
+                    type: 'POST',
+                    data: { productId: productId },
+                    success: function (result) {
+                        if (result.success) {
+                            // Xóa dòng sản phẩm khỏi bảng
+                            $('#favorite-item-' + productId).fadeOut(300, function() { $(this).remove(); });
+
+                            // Hiển thị thông báo thành công
+                            Toastify({
+                                text: result.message,
+                                duration: 3000,
+                                close: true,
+                                gravity: "top",
+                                position: "right",
+                                style: { background: "#5cb85c" }
+                            }).showToast();
+                        } else {
+                            // Hiển thị thông báo lỗi
+                            Toastify({
+                                text: result.message,
+                                duration: 2000,
+                                close: true,
+                                gravity: "top",
+                                position: "right",
+                                style: { background: "#FF0000" }
+                            }).showToast();
+                        }
+                    },
+                    error: function () {
+                        // Hiển thị thông báo khi có lỗi kết nối
+                        Toastify({
+                            text: 'Có lỗi xảy ra, vui lòng thử lại.',
+                            duration: 2000,
+                            close: true,
+                            gravity: "top",
+                            position: "right",
+                            style: { background: "#FF0000" }
+                        }).showToast();
+                    }
+                });
+            });
+
+        });
+    </script>
+}
