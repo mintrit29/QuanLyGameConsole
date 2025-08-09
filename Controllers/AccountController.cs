@@ -150,7 +150,8 @@ namespace QuanLyGameConsole.Controllers
                     ProductId = f.Product.ProductId,
                     Name = f.Product.ProductName!,
                     Price = f.Product.Price,
-                    Image = f.Product.Image
+                    Image = f.Product.Image,
+                    Slug = f.Product.Slug!
                 }).ToList();
 
             return View(favoriteProducts);

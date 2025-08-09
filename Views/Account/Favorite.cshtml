@@ -62,9 +62,11 @@
                                             </td>
                                             <td class="product-price"> @String.Format(new CultureInfo("vi-VN"), "{0:C}",item.Price)</td>
                                             <td class="product_addcart">
-                                                <a href="#" class="btn btn-md btn-golden">
-                                                    Thêm vào giỏ
-                                                </a>
+                                                <div class="product-action-icon-link-list">
+                                                    <a id="add-to-cart" data-slug="@item.Slug" data-quantity="1" class="btn btn-lg btn-black-default-hover add-to-cart">
+                                                        Thêm vào giỏ
+                                                    </a>
+                                                </div>
                                             </td>
                                             <td class="product_remove">
                                                 <a href="/Account/RemoveFavorite?productId=@item.ProductId">
