@@ -274,11 +274,10 @@ namespace QuanLyGameConsole
                     new FooterLink { Title = "Yêu Thích", Url = "/Account/Favorite", GroupId = 2, DisplayOrder = 2, Status = true },
                     new FooterLink { Title = "Lịch Sử Đơn Hàng", Url = "/Account/Order", GroupId = 2, DisplayOrder = 3, Status = true },
                     // Nhóm Danh Mục (GroupId = 3)
-                    new FooterLink { Title = "Đồng Hồ Nam", Url = "/dong-ho-nam", GroupId = 3, DisplayOrder = 1, Status = true },
-                    new FooterLink { Title = "Đồng Hồ Nữ", Url = "/dong-ho-nu", GroupId = 3, DisplayOrder = 2, Status = true },
-                    new FooterLink { Title = "Đồng Hồ Cơ", Url = "/dong-ho-co", GroupId = 3, DisplayOrder = 3, Status = true },
-                    new FooterLink { Title = "Đồng Hồ Pin", Url = "/dong-ho-pin", GroupId = 3, DisplayOrder = 4, Status = true },
-                    new FooterLink { Title = "Đồng hồ Điện Tử", Url = "/dong-ho-dien-tu", GroupId = 3, DisplayOrder = 5, Status = true }
+                    new FooterLink { Title = "Nintendo", Url = "/Product/Index?brands=nintendo", GroupId = 3, DisplayOrder = 1, Status = true },
+                    new FooterLink { Title = "Xbox", Url = "/Product/Index?brands=xbox", GroupId = 3, DisplayOrder = 2, Status = true },
+                    new FooterLink { Title = "PlayStation", Url = "/Product/Index?brands=playstation", GroupId = 3, DisplayOrder = 3, Status = true },
+                    new FooterLink { Title = "Sega", Url = "/Product/Index?brands=sega", GroupId = 3, DisplayOrder = 4, Status = true }
                 );
                 await _context.SaveChangesAsync();
             }
@@ -301,16 +300,15 @@ namespace QuanLyGameConsole
                     new About
                     {
                         Content = @"
-                        ZZZ WATCH không chỉ là nơi để mua sắm, mà còn là một nơi để khám phá, tìm hiểu và đắm mình trong thế giới đồng hồ.
+                        GameZ không chỉ là nơi để mua sắm, mà còn là một thế giới để bạn khám phá, chinh phục và đắm chìm trong vũ trụ game console.
                         <br />
-                        ZZZ WATCH được xây dựng nhằm cung cấp cho khách hàng những sản phẩm đồng hồ đeo tay cao cấp, chất lượng, 
-                        chính hãng cam kết mang đến cho khách hàng những mẫu đồng hồ hoàn hảo về cả thiết kế lẫn tính năng 
-                        và hoàn thành sứ mệnh “Nơi An Tâm Mua Đồng Hồ Chính Hãng”. Đồng thời chúng tôi cũng hướng đến  những trải nghiệm dễ dàng, 
-                        an toàn và nhanh chóng khi mua sắm trực tuyến thông qua hệ thống hỗ trợ thanh toán và vận hành vững mạnh.
+                        Với sứ mệnh ""Nơi An Tâm Trải Nghiệm Game Chính Hãng"", GameZ được xây dựng để mang đến cho cộng đồng game thủ những sản phẩm máy chơi game console hàng đầu, đảm bảo chất lượng và nguồn gốc xuất xứ. Chúng tôi cam kết cung cấp cho khách hàng những mẫu máy chơi game hoàn hảo về cả hiệu năng lẫn thiết kế, giúp bạn sẵn sàng cho mọi cuộc phiêu lưu.
+                        <br />
+                        Bên cạnh đó, GameZ hướng đến việc mang lại trải nghiệm mua sắm trực tuyến dễ dàng, an toàn và nhanh chóng. Thông qua hệ thống hỗ trợ thanh toán và vận hành vững mạnh, chúng tôi đảm bảo mọi giao dịch đều được thực hiện một cách thuận tiện và đáng tin cậy.
                         ",
-                        Address = "65 Đ. Huỳnh Thúc Kháng, Bến Nghé, Quận 1, Hồ Chí Minh",
-                        Phone = "0306221377",
-                        Email = "0306221377@caothang.edu.vn"
+                        Address = "458/3F Nguyễn Hữu Thọ, P. Tân Hưng, Quận 7, TP.HCM",
+                        Phone = "0963303119",
+                        Email = "2200009907@nttu.edu.vn"
                     }
                 );
                 await _context.SaveChangesAsync();
