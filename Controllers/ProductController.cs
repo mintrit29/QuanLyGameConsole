@@ -19,7 +19,9 @@ namespace QuanLyGameConsole.Controllers
         public async Task<IActionResult> Index(string? search, string? categories = "", string? brands = "", double? minPrice = null, double? maxPrice = null, int page = 1, int? gender = null)
         {
             var pageSize = 5;  // Số sản phẩm mỗi trang
-            var products = _context.Products.AsQueryable();
+
+            // Bắt đầu câu truy vấn và áp dụng ngay bộ lọc trạng thái
+            var products = _context.Products.Where(p => p.Status == 1);
 
             if (!string.IsNullOrEmpty(search))
             {
@@ -49,13 +51,12 @@ namespace QuanLyGameConsole.Controllers
                 products = products.Where(p => p.Price <= maxPrice.Value);
             }
 
-            // Lấy tổng số sản phẩm sau khi áp dụng các bộ lọc
+            // Lấy tổng số sản phẩm sau khi đã áp dụng TẤT CẢ bộ lọc
             var totalProducts = await products.CountAsync();
             var totalPages = (int)Math.Ceiling(totalProducts / (double)pageSize);
 
             // Lấy các sản phẩm cho trang hiện tại
             var result = await products
-                .Where(p => p.Deleted == 0)
                 .Include(p => p.ProductRatings)
                 .Skip((page - 1) * pageSize) // Bỏ qua các sản phẩm của các trang trước
                 .Take(pageSize) // Lấy sản phẩm cho trang hiện tại
