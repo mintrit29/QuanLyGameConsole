@@ -22,14 +22,14 @@ namespace QuanLyGameConsole.Models.ViewModels
         [StringLength(255, ErrorMessage = "Địa chỉ không được vượt quá 255 ký tự.")]
         public string? Address { get; set; }
 
-        [Required(ErrorMessage = "Tỉnh/Thành phố là bắt buộc.")]
+       /* [Required(ErrorMessage = "Tỉnh/Thành phố là bắt buộc.")]
         public string? Province { get; set; }
 
         [Required(ErrorMessage = "Quận/Huyện là bắt buộc.")]
         public string? District { get; set; }
 
         [Required(ErrorMessage = "Phường/Xã là bắt buộc.")]
-        public string? Ward { get; set; }
+        public string? Ward { get; set; }*/
 
         [Required(ErrorMessage = "Phương thức thanh toán là bắt buộc.")]
         public string? PaymentMethod { get; set; }

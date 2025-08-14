@@ -21,12 +21,6 @@ namespace QuanLyGameConsole.Models
         [Column(TypeName = "nvarchar(255)")]
         public string? Address { get; set; }
         [Column(TypeName = "nvarchar(200)")]
-        public string? Province { get; set; }
-        [Column(TypeName = "nvarchar(200)")]
-        public string? District { get; set; }
-        [Column(TypeName = "nvarchar(200)")]
-        public string? Ward { get; set; }
-        [Column(TypeName = "nvarchar(50)")]
         public string? PaymentMethod { get; set; }
         [Column(TypeName = "decimal(18,0)")]
         public decimal Total { get; set; }

@@ -7,7 +7,7 @@ namespace QuanLyGameConsole
     {
         public static async Task SeedingData(GameConsoleContext _context)
         {
-            await _context.Database.MigrateAsync();
+//await _context.Database.MigrateAsync();
             if (!_context.Brands.Any())
             {
                 Brand Nintendo = new Brand { Name = "Nintendo", Slug = "nintendo" };

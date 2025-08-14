@@ -8,8 +8,8 @@ namespace QuanLyGameConsole.Models
         [Key]
         public int ProductId { get; set; }
         [Column(TypeName = "nvarchar(100)")]
-        public string Image { get; set; } = null!;
-        [Column(TypeName = "nvarchar(100)")]
+        public string? Image { get; set; }
+       
         public string? ProductName { get; set; }
 
         public int? CategoryId { get; set; }
