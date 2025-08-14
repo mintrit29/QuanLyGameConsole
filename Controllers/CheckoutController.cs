@@ -61,7 +61,7 @@ namespace QuanLyGameConsole.Controllers
                         Ward = checkoutValidationVM.CheckoutVM.Ward,*/
                         PaymentMethod = checkoutValidationVM.CheckoutVM.PaymentMethod,
                         Total = (decimal)Carts.Sum(item => item.Quantity * item.Price),
-                        Status = 1,
+                        Status = 0,
                         OrderDate = DateTime.Now
                     };
 
