@@ -58,7 +58,8 @@
                         <h4>Đơn hàng</h4>
 
                         <div class="row">
-                            <form method="get" class="mb-3">
+                            <form method="get" class="mb-3" id="filterForm">
+                                @Html.AntiForgeryToken()
 
                                 <select id="statusFilter" name="status" onchange="this.form.submit()">
 
@@ -101,22 +102,28 @@
                                                 <td>@bill.OrderDate.ToString("dd-MM-yyyy")</td>
                                                 <td>@bill.FullName</td>
                                                 <td>
-                                                    <span class="@(bill.Status == 1 ? "warning" : bill.Status == 2 ? "success" : "danger")">
+                                                    <span id="status-@bill.BillId" class="@(bill.Status == 1 ? "warning" : bill.Status == 2 ? "success" : "danger")">
                                                         @(bill.Status == 1 ? "Chưa thanh toán" : bill.Status == 2 ? "Đã thanh toán" : "Đã hủy")
                                                     </span>
                                                 </td>
                                                 <td>@bill.Total.ToString("C")</td>
-                                                <td>
+                                                <td class="action-cell">
                                                         @* <a href="@Url.Action("Detail", "Order", new { id = bill.BillId })" class="view">Xem</a> *@
-                                                    @if (bill.Status != 3 && bill.Status != 2)
+                                                    @if (bill.Status == 1) // Chỉ hiển thị khi đơn hàng CHƯA THANH TOÁN
                                                     {
-                                                        <form method="post" action="@Url.Action("CancelOrder", "Account")" style="display:inline;">
+                                                        <!-- Nút Xác nhận Thanh toán MỚI -->
+                                                        <button type="button" class="btn btn-success btn-sm btn-confirm-payment" data-bill-id="@bill.BillId">
+                                                            Xác nhận thanh toán
+                                                        </button>
+
+                                                        <!-- Nút Hủy cũ -->
+                                                        <form method="post" action="@Url.Action("CancelOrder", "Account")" style="display:inline;" class="form-cancel">
                                                             @Html.AntiForgeryToken()
                                                             <input type="hidden" name="id" value="@bill.BillId" />
                                                             <button type="submit" class="btn btn-black-default-hover btn-sm" onclick="return confirm('Bạn có chắc muốn hủy đơn hàng này?');">Hủy</button>
                                                         </form>
-                                                        }
-                                                   </td>
+                                                    }
+                                                </td>
                                             </tr>
                                         }
                                     }
@@ -129,3 +136,62 @@
         </div>
     </div>
 </div> <!-- ...:::: End Account Dashboard Section:::... -->
+@section Scripts {
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            document.querySelectorAll('.btn-confirm-payment').forEach(button => {
+                button.addEventListener('click', function () {
+                    const currentButton = this; // <-- Lấy tham chiếu đến nút vừa nhấn
+                    const billId = currentButton.dataset.billId;
+                    const row = currentButton.closest('tr');
+                    const token = document.querySelector('#filterForm input[name="__RequestVerificationToken"]').value;
+
+                    if (!confirm('Bạn có chắc chắn đã nhận hàng và muốn xác nhận thanh toán cho đơn hàng này?')) {
+                        return;
+                    }
+
+                    // --- GIẢI PHÁP: VÔ HIỆU HÓA NÚT NGAY LẬP TỨC ---
+                    currentButton.disabled = true;
+                    currentButton.textContent = 'Đang xử lý...'; // Thay đổi chữ để người dùng biết
+
+                    fetch('/Account/ConfirmPayment', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/x-www-form-urlencoded',
+                            'RequestVerificationToken': token
+                        },
+                        body: `id=${billId}`
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.success) {
+                            const statusSpan = document.getElementById(`status-${billId}`);
+                            if (statusSpan) {
+                                statusSpan.textContent = 'Đã thanh toán';
+                                statusSpan.className = 'success';
+                            }
+
+                            const actionCell = row.querySelector('.action-cell');
+                            if (actionCell) {
+                                actionCell.innerHTML = ''; // Xóa các nút đi
+                            }
+                            // Không cần alert thành công nữa vì giao diện đã tự cập nhật
+                        } else {
+                            alert(data.message || 'Có lỗi xảy ra, vui lòng thử lại.');
+                            // Kích hoạt lại nút nếu có lỗi để người dùng thử lại
+                            currentButton.disabled = false;
+                            currentButton.textContent = 'Xác nhận thanh toán';
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Chi tiết lỗi:', error);
+                        alert('Đã có lỗi kết nối hoặc lỗi xử lý xảy ra.');
+                        // Kích hoạt lại nút nếu có lỗi để người dùng thử lại
+                        currentButton.disabled = false;
+                        currentButton.textContent = 'Xác nhận thanh toán';
+                    });
+                });
+            });
+        });
+    </script>
+}

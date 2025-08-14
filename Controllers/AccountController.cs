@@ -220,5 +220,53 @@ namespace QuanLyGameConsole.Controllers
         }
 
 
+
+        [HttpPost] // <-- Đảm bảo có dòng này
+        [ValidateAntiForgeryToken] // <-- Đảm bảo có dòng này
+        public async Task<IActionResult> ConfirmPayment(int id)
+        {
+            // Lấy CustomerId từ claims để đảm bảo bảo mật
+            var customerIdClaim = User.Claims.FirstOrDefault(c => c.Type == "CustomerId");
+            if (customerIdClaim == null || !int.TryParse(customerIdClaim.Value, out var customerId))
+            {
+                // Trả về lỗi 401 Unauthorized nếu không xác thực được
+                return StatusCode(401, new { success = false, message = "Lỗi xác thực người dùng." });
+            }
+
+            // Tìm đơn hàng theo BillId VÀ CustomerId của người dùng đang đăng nhập
+            var bill = await _context.Bills
+                .FirstOrDefaultAsync(b => b.BillId == id && b.CustomerId == customerId);
+
+            if (bill == null)
+            {
+                // Trả về lỗi 404 Not Found nếu không tìm thấy đơn hàng
+                return NotFound(new { success = false, message = "Không tìm thấy đơn hàng." });
+            }
+
+            // Chỉ cho phép xác nhận nếu đơn hàng đang ở trạng thái "Chưa thanh toán" (Status = 1)
+            if (bill.Status != 1)
+            {
+                // Trả về lỗi 400 Bad Request nếu trạng thái không hợp lệ
+                return BadRequest(new { success = false, message = "Đơn hàng không ở trạng thái có thể xác nhận." });
+            }
+
+            try
+            {
+                // Cập nhật trạng thái thành "Đã thanh toán" (Status = 2)
+                bill.Status = 2;
+                _context.Update(bill);
+                await _context.SaveChangesAsync();
+
+                // Trả về kết quả thành công
+                return Json(new { success = true, message = "Xác nhận thanh toán thành công." });
+            }
+            catch (Exception ex)
+            {
+                // Nếu có lỗi khi lưu vào DB, trả về lỗi 500 Internal Server Error
+                // Ghi lại lỗi để gỡ lỗi (bạn có thể dùng ILogger ở đây)
+                Console.WriteLine(ex.Message);
+                return StatusCode(500, new { success = false, message = "Đã xảy ra lỗi phía máy chủ khi cập nhật đơn hàng." });
+            }
+        }
     }
 }

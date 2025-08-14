@@ -21,23 +21,49 @@ namespace QuanLyGameConsole.Controllers
             _context = context;
             _paypalClient = paypalClient;
         }
-        public IActionResult Index()
+        public async Task<IActionResult> Index() // Thay đổi thành async Task<IActionResult>
         {
             if (!User.Identity!.IsAuthenticated)
             {
                 TempData["ShowLoginModal"] = true;
                 return RedirectToAction("Index", "Home");
             }
-            if (Carts is null || Carts.Count == 0)
+            if (Carts == null || !Carts.Any())
             {
                 TempData["error"] = "Giỏ hàng của bạn đang trống";
                 return RedirectToAction("Cart", "Cart");
             }
+
+            // Tạo một đối tượng CheckoutVM trống để bắt đầu
+            var checkoutVM = new CheckoutVM();
+
+            // --- BẮT ĐẦU PHẦN THÊM MỚI ---
+
+            // 1. Lấy CustomerId của người dùng đang đăng nhập từ Claims
+            var customerIdClaim = HttpContext.User.Claims.SingleOrDefault(c => c.Type == "CustomerId");
+            if (customerIdClaim != null && int.TryParse(customerIdClaim.Value, out var customerId))
+            {
+                // 2. Dùng CustomerId để truy vấn thông tin Customer từ database
+                var customer = await _context.Customers.FindAsync(customerId);
+
+                // 3. Nếu tìm thấy thông tin, điền vào đối tượng checkoutVM
+                if (customer != null)
+                {
+                    checkoutVM.FullName = customer.FullName;
+                    checkoutVM.Phone = customer.Phone;
+                    checkoutVM.Email = customer.Email;
+                    checkoutVM.Address = customer.Address;
+                }
+            }
+            // --- KẾT THÚC PHẦN THÊM MỚI ---
+
+            // 4. Tạo đối tượng cuối cùng để gửi đến View
             var checkoutValidationVM = new CheckoutValidationVM
             {
-                CheckoutVM = new CheckoutVM(),
+                CheckoutVM = checkoutVM, // Gửi checkoutVM đã được điền thông tin
                 CartRequest = Carts
             };
+
             ViewBag.PaypalClientId = _paypalClient.ClientId;
             return View(checkoutValidationVM);
         }
@@ -61,7 +87,7 @@ namespace QuanLyGameConsole.Controllers
                         Ward = checkoutValidationVM.CheckoutVM.Ward,*/
                         PaymentMethod = checkoutValidationVM.CheckoutVM.PaymentMethod,
                         Total = (decimal)Carts.Sum(item => item.Quantity * item.Price),
-                        Status = 0,
+                        Status = 1,
                         OrderDate = DateTime.Now
                     };
 

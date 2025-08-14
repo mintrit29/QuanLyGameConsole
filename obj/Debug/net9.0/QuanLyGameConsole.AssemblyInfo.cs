@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("QuanLyGameConsole")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9c2d31d034161a91d7ad188a2fa2737a2e05b21a")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6f64adc6edec39efcc1ac87104a4a2b363f41340")]
 [assembly: System.Reflection.AssemblyProductAttribute("QuanLyGameConsole")]
 [assembly: System.Reflection.AssemblyTitleAttribute("QuanLyGameConsole")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
