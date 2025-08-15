@@ -25,7 +25,7 @@ namespace QuanLyGameConsole.Areas.Admin.Controllers
             };
             ViewBag.customerCount = await _context.Customers.CountAsync();
             ViewBag.productCount = await _context.Products.Where(p => p.Status == 1).CountAsync();
-            ViewBag.orderCount = await _context.Bills.Where(b => b.Status == 1).CountAsync();
+            ViewBag.orderCount = await _context.Bills.Where(b => b.Status == 2).CountAsync();
             return View(footerVM);
         }
         [HttpPost]

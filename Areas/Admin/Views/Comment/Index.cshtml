@@ -26,7 +26,7 @@
                         ? item.CreatedAt.Value.ToString("dd/MM/yyyy")
                         : "")
                 </td>
-                <td>@item.Customer?.FullName </td>
+                <td>@item.Customer?.DisplayName </td>
                 <td>@item.Product?.ProductName</td>
                 <td class="text-center">
                     <a asp-action="Reply" asp-route-id="@item.CommentId" class="btn btn-sm btn-success">

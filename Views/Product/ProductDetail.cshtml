@@ -33,10 +33,12 @@
                     <!-- Start Large Image -->
                     <div class="product-large-image product-large-image-horaizontal swiper-container">
                         <div class="swiper-wrapper">
-                            <div class="product-image-large-image swiper-slide zoom-image-hover img-responsive">
-                                <img src="~/images/@Model.Product.Image" alt="" />
-
-                            </div>
+                            @foreach (var img in Model.Product.ProductImages)
+                            {
+                                <div class="product-image-large-image swiper-slide img-responsive">
+                                    <img src="~/images/@img.Image" alt="">
+                                </div>
+                            }
                         </div>
                     </div>
                     <!-- End Large Image -->
@@ -258,7 +260,7 @@
                                         }
                                         else
                                         {
-                                            <form asp-action="AddReview" asp-route-id="@Model.Product.ProductId" method="post">
+                                            <form asp-action="AddReview" asp-route-slug="@Model.Product.Slug" method="post">
                                                 <div class="row">
                                                     <div class="col-md-6">
                                                         <div class="default-form-box">
@@ -326,7 +328,7 @@
                                     <div class="product-default-single-item product-color--golden swiper-slide">
                                         <div class="image-box">
                                             <a asp-controller="product" asp-action="productdetail" class="image-link">
-                                                <img src="~/Images/@product.Image" alt="">
+                                                <img src="~/Images/@product.Image" style="width: 320px; height: 320px; object-fit: contain" alt="">
                                             </a>
                                             <div class="action-link">
                                                 <div class="action-link-left">
@@ -428,58 +430,4 @@
             });
         });
     </script>
-    @* <script> *@
-    @*     $(document).ready(function () { *@
-    @*         $('.add-to-cart').click(function (e) { *@
-    @*             e.preventDefault(); *@
-    @*             var $this = $(this); *@
-    @*             var slug = $(this).data('slug'); *@
-    @*             var quantity_input = parseInt($('#quantity-input').val()) || 1; *@
-    @*             var quantity = $(this).data('quantity'); *@
-    @* *@
-    @*             $.ajax({ *@
-    @*                 url: '@Url.Action("AddToCart", "Cart")', *@
-    @*                 type: 'POST', *@
-    @*                 data: { slug: slug, quantity: quantity ,quantity_input: quantity_input }, *@
-    @*                 success: function (result) { *@
-    @*                     if (result.success) { *@
-    @*                         Toastify({ *@
-    @*                             text: result.message, *@
-    @*                             duration: 3000, *@
-    @*                             close: true, *@
-    @*                             stopOnFocus: true, *@
-    @*                             gravity: "top", *@
-    @*                             position: "right", *@
-    @*                             backgroundColor: "#5cb85c", *@
-    @*                             className: "info" *@
-    @*                         }).showToast(); *@
-    @*                     } else { *@
-    @*                         Toastify({ *@
-    @*                             text: result.message, *@
-    @*                             duration: 3000, *@
-    @*                             close: true, *@
-    @*                             stopOnFocus: true, *@
-    @*                             gravity: "top", *@
-    @*                             position: "right", *@
-    @*                             backgroundColor: "#FF0000", *@
-    @*                             className: "error" *@
-    @*                         }).showToast(); *@
-    @*                     } *@
-    @*                 }, *@
-    @*                 error: function () { *@
-    @*                     Toastify({ *@
-    @*                         text: 'Có lỗi xảy ra khi thêm sản phẩm vào giỏ hàng.', *@
-    @*                         duration: 3000, *@
-    @*                         close: true, *@
-    @*                         stopOnFocus: true, *@
-    @*                         gravity: "top", *@
-    @*                         position: "right", *@
-    @*                         backgroundColor: "#FF0000", *@
-    @*                         className: "error" *@
-    @*                     }).showToast(); *@
-    @*                 } *@
-    @*             }); *@
-    @*         }); *@
-    @*     }); *@
-    @* </script> *@
 }

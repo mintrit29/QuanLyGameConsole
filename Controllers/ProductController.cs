@@ -149,7 +149,7 @@ namespace QuanLyGameConsole.Controllers
             }
 
             var relatedProducts = await _context.Products
-                .Where(p => p.CategoryId == product.CategoryId && p.BrandId == product.BrandId && p.ProductId != product.ProductId)
+                .Where(p => p.CategoryId == product.CategoryId || p.BrandId == product.BrandId && p.ProductId != product.ProductId)
                 .Take(5)
                 .ToListAsync();
             // Tạo ViewModel
@@ -176,22 +176,23 @@ namespace QuanLyGameConsole.Controllers
             return View(viewModel); // Trả về View
         }
         [HttpPost]
-        [Route("ProductDetail/{id}/AddReview")]
-        public IActionResult AddReview(int id, string content, int rating)
+        [Route("ProductDetail/{slug}/AddReview")] // Thay đổi route
+        public IActionResult AddReview(string slug, string content, int rating) // Thay đổi tham số
         {
             var customerIdClaim = User.Claims.FirstOrDefault(c => c.Type == "CustomerId");
             int? customerId = customerIdClaim != null ? int.Parse(customerIdClaim.Value) : (int?)null;
-            // Kiểm tra sản phẩm tồn tại
-            var product = _context.Products.Find(id);
+
+            // Thay đổi ở đây: Tìm sản phẩm bằng slug thay vì id
+            var product = _context.Products.FirstOrDefault(p => p.Slug == slug);
             if (product == null)
             {
                 return NotFound();
             }
 
+            // Quan trọng: Vẫn sử dụng product.ProductId (là số) để lưu vào CSDL
             var comment = new ProductComment
             {
-
-                ProductId = id,
+                ProductId = product.ProductId, // Dùng ID lấy từ sản phẩm đã tìm được
                 CustomerId = customerId,
                 Contents = content,
                 CreatedAt = DateTime.Now
@@ -199,7 +200,7 @@ namespace QuanLyGameConsole.Controllers
 
             var productRating = new ProductRating
             {
-                ProductId = id,
+                ProductId = product.ProductId, // Dùng ID lấy từ sản phẩm đã tìm được
                 CustomerId = customerId,
                 Rating = rating
             };
@@ -208,57 +209,9 @@ namespace QuanLyGameConsole.Controllers
             _context.ProductRatings.Add(productRating);
             _context.SaveChanges();
 
-            return RedirectToAction("ProductDetail", new { id }); // Quay lại trang chi tiết sản phẩm
+            // Thay đổi ở đây: Redirect lại trang chi tiết sản phẩm bằng slug
+            return RedirectToAction("ProductDetail", new { slug = product.Slug });
         }
-        //public IActionResult AddToCart([FromBody] CartRequest request)
-        //{
-        //    if (request.Slug is null)
-        //    {
-        //        return BadRequest(new { message = "ID sản phẩm không hợp lệ!" });
-        //    }
-
-        //    var customerIdClaim = User.Claims.FirstOrDefault(c => c.Type == "CustomerId");
-        //    int? customerId = customerIdClaim != null ? int.Parse(customerIdClaim.Value) : (int?)null;
-
-        //    if (!User.Identity.IsAuthenticated)
-        //    {
-        //        return Json(new { success = false, message = "Bạn cần đăng nhập để thêm sản phẩm vào giỏ hàng." });
-        //    }
-
-        //    // Tìm sản phẩm trong cơ sở dữ liệu
-        //    var product = _context.Products.FirstOrDefault(p => p.Slug == request.Slug);
-        //    if (product == null)
-        //    {
-        //        return BadRequest(new { message = "Sản phẩm không tồn tại!" });
-        //    }
-
-        //    // Tìm sản phẩm trong giỏ hàng của khách hàng
-        //    var existingCartItem = _context.Carts.FirstOrDefault(c => c.ProductId == request.PrsluoductId && c.CustomerId == customerId);
-
-        //    if (existingCartItem != null)
-        //    {
-        //        existingCartItem.Quantity++;
-        //        if (existingCartItem.Quantity > product.Quantity)
-        //        {
-        //            existingCartItem.Quantity = product.Quantity ?? 0;
-        //        }
-        //        _context.Carts.Update(existingCartItem);
-        //    }
-        //    else
-        //    {
-        //        var newCartItem = new Cart
-        //        {
-        //            ProductId = request.ProductId,
-        //            CustomerId = customerId,
-        //            Quantity = 1,
-        //            Price = (decimal?)product.Price
-        //        };
-        //        _context.Carts.Add(newCartItem);
-        //    }
-
-        //    _context.SaveChanges();
-        //    return Ok(new { message = "Sản phẩm đã được thêm vào giỏ hàng!", success = true });
-        //}
 
 
     }
