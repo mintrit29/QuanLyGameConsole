@@ -1,0 +1,18 @@
+﻿@model QuanLyGameConsole.Models.ProductComment
+
+<h2>Trả lời bình luận</h2>
+
+<div>
+    <p><strong>Người bình luận:</strong> @Model.Customer.FullName</p>
+    <p><strong>Sản phẩm:</strong> @Model.Product.ProductName</p>
+    <p><strong>Bình luận:</strong> @Model.Contents</p>
+</div>
+
+<form asp-action="Reply" method="post">
+    <input type="hidden" name="id" value="@Model.CommentId" />
+    <div class="form-group">
+        <label for="reply">Nội dung trả lời</label>
+        <textarea name="reply" class="form-control" rows="4">@Model.Reply</textarea>
+    </div>
+    <button type="submit" class="btn btn-primary mt-2">Gửi trả lời</button>
+</form>

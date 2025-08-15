@@ -15,7 +15,8 @@ namespace QuanLyGameConsole.Models
         public string? Contents { get; set; }
 
         public DateTime? CreatedAt { get; set; }
-
+        public string? Reply { get; set; }
+        public DateTime? ReplyAt { get; set; }
         public virtual Customer? Customer { get; set; }
 
         public virtual Product Product { get; set; } = null!;

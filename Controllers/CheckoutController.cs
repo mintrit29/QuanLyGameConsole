@@ -82,12 +82,9 @@ namespace QuanLyGameConsole.Controllers
                         Phone = checkoutValidationVM.CheckoutVM.Phone,
                         Email = checkoutValidationVM.CheckoutVM.Email,
                         Address = checkoutValidationVM.CheckoutVM.Address,
-                        /*Province = checkoutValidationVM.CheckoutVM.Province,
-                        District = checkoutValidationVM.CheckoutVM.District,
-                        Ward = checkoutValidationVM.CheckoutVM.Ward,*/
                         PaymentMethod = checkoutValidationVM.CheckoutVM.PaymentMethod,
                         Total = (decimal)Carts.Sum(item => item.Quantity * item.Price),
-                        Status = 1,
+                        Status = checkoutValidationVM.CheckoutVM.PaymentMethod == "COD" ? 0 : 1,
                         OrderDate = DateTime.Now
                     };
 

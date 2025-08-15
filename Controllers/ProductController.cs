@@ -168,7 +168,8 @@ namespace QuanLyGameConsole.Controllers
                         CustomerName = c.Customer?.DisplayName ?? "Guest", // Hiển thị tên khách
                         Content = c.Contents,
                         CreatedAt = c.CreatedAt,
-                        Rating = product.ProductRatings.FirstOrDefault(r => r.CustomerId == c.CustomerId)?.Rating
+                        Rating = product.ProductRatings.FirstOrDefault(r => r.CustomerId == c.CustomerId)?.Rating,
+                        Reply = c.Reply //
                     }).ToList(),
             };
 

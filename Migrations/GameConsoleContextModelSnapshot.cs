@@ -88,9 +88,6 @@ namespace QuanLyGameConsole.Migrations
                     b.Property<int>("CustomerId")
                         .HasColumnType("int");
 
-                    b.Property<string>("District")
-                        .HasColumnType("nvarchar(200)");
-
                     b.Property<string>("Email")
                         .HasColumnType("varchar(255)");
 
@@ -104,22 +101,16 @@ namespace QuanLyGameConsole.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("PaymentMethod")
-                        .HasColumnType("nvarchar(50)");
+                        .HasColumnType("nvarchar(200)");
 
                     b.Property<string>("Phone")
                         .HasColumnType("varchar(15)");
-
-                    b.Property<string>("Province")
-                        .HasColumnType("nvarchar(200)");
 
                     b.Property<int>("Status")
                         .HasColumnType("int");
 
                     b.Property<decimal>("Total")
                         .HasColumnType("decimal(18,0)");
-
-                    b.Property<string>("Ward")
-                        .HasColumnType("nvarchar(200)");
 
                     b.HasKey("BillId");
 
@@ -403,14 +394,13 @@ namespace QuanLyGameConsole.Migrations
                         .HasColumnType("nvarchar(500)");
 
                     b.Property<string>("Image")
-                        .IsRequired()
                         .HasColumnType("nvarchar(100)");
 
                     b.Property<double?>("Price")
                         .HasColumnType("float");
 
                     b.Property<string>("ProductName")
-                        .HasColumnType("nvarchar(100)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int?>("Quantity")
                         .HasColumnType("int");
@@ -461,6 +451,12 @@ namespace QuanLyGameConsole.Migrations
 
                     b.Property<int>("ProductId")
                         .HasColumnType("int");
+
+                    b.Property<string>("Reply")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("ReplyAt")
+                        .HasColumnType("datetime2");
 
                     b.HasKey("CommentId");
 

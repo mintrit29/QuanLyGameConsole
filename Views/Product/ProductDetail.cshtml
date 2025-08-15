@@ -232,12 +232,19 @@
                                                         }
                                                     </ul>
                                                     <p>@comment.Content</p>
+
+                                                    @if (!string.IsNullOrEmpty(comment.Reply))
+                                                    {
+                                                        <p class="reply"><strong>Admin:</strong> @comment.Reply</p>
+                                                    }
+
                                                     <small>@comment.CreatedAt?.ToString("dd/MM/yyyy")</small>
                                                 </div>
                                             </li>
                                         }
                                     </ul>
                                     <hr />
+
 
                                     <div class="review-form">
                                         <div class="review-form-text-top">
