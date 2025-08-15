@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "C:\\Users\\speak\\OneDrive\\Desktop\\QuanLyGameConsole\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{21E9E158-A4D2-4677-A593-F16216D5BA38}|QuanLyGameConsole.csproj|c:\\users\\speak\\onedrive\\desktop\\quanlygameconsole\\areas\\admin\\views\\product\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{21E9E158-A4D2-4677-A593-F16216D5BA38}|QuanLyGameConsole.csproj|solutionrelative:areas\\admin\\views\\product\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{21E9E158-A4D2-4677-A593-F16216D5BA38}|QuanLyGameConsole.csproj|c:\\users\\speak\\onedrive\\desktop\\quanlygameconsole\\views\\product\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{21E9E158-A4D2-4677-A593-F16216D5BA38}|QuanLyGameConsole.csproj|solutionrelative:views\\product\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
@@ -36,6 +40,19 @@
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\speak\\OneDrive\\Desktop\\QuanLyGameConsole\\Areas\\Admin\\Views\\Product\\Index.cshtml",
+              "RelativeDocumentMoniker": "Areas\\Admin\\Views\\Product\\Index.cshtml",
+              "ToolTip": "C:\\Users\\speak\\OneDrive\\Desktop\\QuanLyGameConsole\\Areas\\Admin\\Views\\Product\\Index.cshtml",
+              "RelativeToolTip": "Areas\\Admin\\Views\\Product\\Index.cshtml",
+              "ViewState": "AgIAABIAAAAAAAAAAAAAAB0AAAAhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-08-15T16:26:23.133Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Index.cshtml",
               "DocumentMoniker": "C:\\Users\\speak\\OneDrive\\Desktop\\QuanLyGameConsole\\Views\\Product\\Index.cshtml",
               "RelativeDocumentMoniker": "Views\\Product\\Index.cshtml",
               "ToolTip": "C:\\Users\\speak\\OneDrive\\Desktop\\QuanLyGameConsole\\Views\\Product\\Index.cshtml",
@@ -47,7 +64,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "_HeroSlider.cshtml",
               "DocumentMoniker": "C:\\Users\\speak\\OneDrive\\Desktop\\QuanLyGameConsole\\Views\\Shared\\_HeroSlider.cshtml",
               "RelativeDocumentMoniker": "Views\\Shared\\_HeroSlider.cshtml",
@@ -55,12 +72,11 @@
               "RelativeToolTip": "Views\\Shared\\_HeroSlider.cshtml",
               "ViewState": "AgIAAAwAAAAAAAAAAAAAABkAAAAqAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-08-15T15:51:31.126Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-15T15:51:31.126Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "Slider.cs",
               "DocumentMoniker": "C:\\Users\\speak\\OneDrive\\Desktop\\QuanLyGameConsole\\Models\\Slider.cs",
               "RelativeDocumentMoniker": "Models\\Slider.cs",
@@ -68,12 +84,11 @@
               "RelativeToolTip": "Models\\Slider.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-15T15:52:12.802Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-15T15:52:12.802Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "SeedData.cs",
               "DocumentMoniker": "C:\\Users\\speak\\OneDrive\\Desktop\\QuanLyGameConsole\\Repository\\SeedData.cs",
               "RelativeDocumentMoniker": "Repository\\SeedData.cs",
@@ -81,8 +96,7 @@
               "RelativeToolTip": "Repository\\SeedData.cs",
               "ViewState": "AgIAAD0AAAAAAAAAAAAQwEsAAAAgAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-15T15:01:43.894Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-15T15:01:43.894Z"
             }
           ]
         }
