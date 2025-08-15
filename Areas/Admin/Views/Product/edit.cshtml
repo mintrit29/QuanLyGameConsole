@@ -4,31 +4,53 @@
     ViewData["Title"] = "Chỉnh sửa sản phẩm";
 }
 
-<h1>@ViewData["Title"]</h1>
+<div class="container mt-4">
+    <div class="card shadow-lg p-4 rounded-3">
+        <h2 class="text-primary mb-4">@ViewData["Title"]</h2>
 
-<form asp-action="Edit" method="post" enctype="multipart/form-data">
-    <input type="hidden" asp-for="ProductId" />
+        <form asp-action="Edit" method="post" enctype="multipart/form-data">
+            <input type="hidden" asp-for="ProductId" />
 
-    <div class="form-group">
-        <label asp-for="ProductName" class="control-label"></label>
-        <input asp-for="ProductName" class="form-control" />
-        <span asp-validation-for="ProductName" class="text-danger"></span>
+            <div class="mb-3">
+                <label asp-for="ProductName" class="form-label fw-bold"></label>
+                <input asp-for="ProductName" class="form-control" placeholder="Nhập tên sản phẩm" />
+                <span asp-validation-for="ProductName" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Price" class="form-label fw-bold"></label>
+                <input asp-for="Price" type="number" step="0.01" class="form-control" placeholder="Nhập giá sản phẩm" />
+                <span asp-validation-for="Price" class="text-danger"></span>
+            </div>
+
+            <!-- Các trường khác bạn có thể bổ sung -->
+            <div class="mb-3">
+                <label asp-for="Description" class="form-label fw-bold">Mô tả sản phẩm</label>
+                <textarea asp-for="Description" class="form-control" rows="4" placeholder="Nhập mô tả chi tiết sản phẩm"></textarea>
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label fw-bold">Ảnh hiện tại</label><br />
+                @if (!string.IsNullOrEmpty(Model.Image))
+                {
+                    <img src="~/images/products/@Model.Image alt="Ảnh sản phẩm" class="img-thumbnail mb-2" style="max-height: 200px;" />
+                }
+                else
+                {
+                    <p class="text-muted fst-italic">Chưa có ảnh</p>
+                }
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label fw-bold">Chọn ảnh mới</label>
+                <input type="file" name="imageFile" class="form-control" />
+            </div>
+
+            <div class="mt-4">
+                <button type="submit" class="btn btn-success px-4 me-2">💾 Lưu thay đổi</button>
+                <a href="@Url.Action("Index")" class="btn btn-secondary px-4">⬅ Trở lại</a>
+            </div>
+        </form>
     </div>
-
-    <div class="form-group">
-        <label asp-for="Price" class="control-label"></label>
-        <input asp-for="Price" class="form-control" />
-        <span asp-validation-for="Price" class="text-danger"></span>
-    </div>
-
-    <!-- Các trường khác -->
-
-    <div class="form-group">
-        <label>Ảnh sản phẩm</label>
-        <input type="file" name="imageFile" class="form-control" />
-    </div>
-
-    <button type="submit" class="btn btn-primary">Cập nhật sản phẩm</button>
-</form>
-
-<a href="@Url.Action("Index")">Trở lại danh sách sản phẩm</a>
+</div>
