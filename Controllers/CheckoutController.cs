@@ -84,7 +84,7 @@ namespace QuanLyGameConsole.Controllers
                         Address = checkoutValidationVM.CheckoutVM.Address,
                         PaymentMethod = checkoutValidationVM.CheckoutVM.PaymentMethod,
                         Total = (decimal)Carts.Sum(item => item.Quantity * item.Price),
-                        Status = checkoutValidationVM.CheckoutVM.PaymentMethod == "COD" ? 0 : 1,
+                        Status = 1,
                         OrderDate = DateTime.Now
                     };
 

@@ -33,19 +33,19 @@
                     <ul role="tablist" class="nav flex-column dashboard-list">
                         <li>
                             <a asp-controller="Account" asp-action="Order"
-                               class="nav-link btn btn-block btn-md btn-black-default-hover active">Đơn hàng</a>
+                            class="nav-link btn btn-block btn-md btn-black-default-hover active">Đơn hàng</a>
                         </li>
                         <li>
                             <a asp-controller="Account" asp-action="Index"
-                               class="nav-link btn btn-block btn-md btn-black-default-hover">Thông tin cá nhân</a>
+                            class="nav-link btn btn-block btn-md btn-black-default-hover">Thông tin cá nhân</a>
                         </li>
                         <li>
                             <a asp-controller="Account" asp-action="Favorite"
-                               class="nav-link btn btn-block btn-md btn-black-default-hover">Yêu Thích</a>
+                            class="nav-link btn btn-block btn-md btn-black-default-hover">Yêu Thích</a>
                         </li>
                         <li>
                             <a asp-controller="Account" asp-action="Logout"
-                               class="nav-link btn btn-block btn-md btn-black-default-hover">Đăng xuất</a>
+                            class="nav-link btn btn-block btn-md btn-black-default-hover">Đăng xuất</a>
                         </li>
                     </ul>
                 </div>
@@ -108,15 +108,15 @@
                                                 </td>
                                                 <td>@bill.Total.ToString("C")</td>
                                                 <td class="action-cell">
-                                                        @* <a href="@Url.Action("Detail", "Order", new { id = bill.BillId })" class="view">Xem</a> *@
-                                                    @if (bill.Status == 1) // Chỉ hiển thị khi đơn hàng CHƯA THANH TOÁN
+                                                    <!-- Chỉ hiển thị các nút hành động khi đơn hàng ở trạng thái "Chưa thanh toán" -->
+                                                    @if (bill.Status == 1)
                                                     {
-                                                        <!-- Nút Xác nhận Thanh toán MỚI -->
+                                                        <!-- Nút Xác nhận Thanh toán -->
                                                         <button type="button" class="btn btn-success btn-sm btn-confirm-payment" data-bill-id="@bill.BillId">
                                                             Xác nhận thanh toán
                                                         </button>
 
-                                                        <!-- Nút Hủy cũ -->
+                                                        <!-- Nút Hủy -->
                                                         <form method="post" action="@Url.Action("CancelOrder", "Account")" style="display:inline;" class="form-cancel">
                                                             @Html.AntiForgeryToken()
                                                             <input type="hidden" name="id" value="@bill.BillId" />

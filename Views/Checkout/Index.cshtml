@@ -80,21 +80,13 @@
                                         <span>Thanh toán khi nhận hàng (COD)</span>
                                     </label>
                                 </div>
-                                <div class="panel-default">
-                                    <label class="checkbox-default" for="currencyCard">
-                                        <input type="radio" asp-for="@Model.CheckoutVM.PaymentMethod" value="Card"
-                                               required>
-                                        <span>Thanh toán bằng thẻ ngân hàng</span>
-                                    </label>
-                                </div>
-                               
-
                                 <div class="order_button pt-3">
+                                    
+                                    <div id="paypal-button-container" style="width: 1000px" type="submit">
+                                    </div>
                                     <button class="btn btn-md btn-black-default-hover" type="submit">
                                         Xác Nhận
                                     </button>
-                                    <div id="paypal-button-container" style="width: 1000px" type="submit">
-                                    </div>
                                 </div>
                             </div>
                         </div>
