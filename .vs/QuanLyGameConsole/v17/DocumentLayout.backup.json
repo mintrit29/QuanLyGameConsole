@@ -1,54 +1,26 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\Admin\\source\\repos\\QuanLyGameConsole\\",
+  "WorkspaceRootPath": "C:\\Users\\speak\\OneDrive\\Desktop\\QuanLyGameConsole\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{21E9E158-A4D2-4677-A593-F16216D5BA38}|QuanLyGameConsole.csproj|c:\\users\\admin\\source\\repos\\quanlygameconsole\\areas\\admin\\views\\product\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{21E9E158-A4D2-4677-A593-F16216D5BA38}|QuanLyGameConsole.csproj|solutionrelative:areas\\admin\\views\\product\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{21E9E158-A4D2-4677-A593-F16216D5BA38}|QuanLyGameConsole.csproj|c:\\users\\speak\\onedrive\\desktop\\quanlygameconsole\\views\\shared\\components\\footer\\default.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{21E9E158-A4D2-4677-A593-F16216D5BA38}|QuanLyGameConsole.csproj|solutionrelative:views\\shared\\components\\footer\\default.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{21E9E158-A4D2-4677-A593-F16216D5BA38}|QuanLyGameConsole.csproj|c:\\users\\admin\\source\\repos\\quanlygameconsole\\models\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{21E9E158-A4D2-4677-A593-F16216D5BA38}|QuanLyGameConsole.csproj|solutionrelative:models\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{21E9E158-A4D2-4677-A593-F16216D5BA38}|QuanLyGameConsole.csproj|c:\\users\\speak\\onedrive\\desktop\\quanlygameconsole\\views\\shared\\_heroslider.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{21E9E158-A4D2-4677-A593-F16216D5BA38}|QuanLyGameConsole.csproj|solutionrelative:views\\shared\\_heroslider.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{21E9E158-A4D2-4677-A593-F16216D5BA38}|QuanLyGameConsole.csproj|c:\\users\\admin\\source\\repos\\quanlygameconsole\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{21E9E158-A4D2-4677-A593-F16216D5BA38}|QuanLyGameConsole.csproj|solutionrelative:controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{21E9E158-A4D2-4677-A593-F16216D5BA38}|QuanLyGameConsole.csproj|c:\\users\\speak\\onedrive\\desktop\\quanlygameconsole\\views\\product\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{21E9E158-A4D2-4677-A593-F16216D5BA38}|QuanLyGameConsole.csproj|solutionrelative:views\\product\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{21E9E158-A4D2-4677-A593-F16216D5BA38}|QuanLyGameConsole.csproj|c:\\users\\admin\\source\\repos\\quanlygameconsole\\views\\home\\privacy.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{21E9E158-A4D2-4677-A593-F16216D5BA38}|QuanLyGameConsole.csproj|solutionrelative:views\\home\\privacy.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{21E9E158-A4D2-4677-A593-F16216D5BA38}|QuanLyGameConsole.csproj|c:\\users\\speak\\onedrive\\desktop\\quanlygameconsole\\models\\slider.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{21E9E158-A4D2-4677-A593-F16216D5BA38}|QuanLyGameConsole.csproj|solutionrelative:models\\slider.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{21E9E158-A4D2-4677-A593-F16216D5BA38}|QuanLyGameConsole.csproj|c:\\users\\admin\\source\\repos\\quanlygameconsole\\areas\\admin\\controllers\\billcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{21E9E158-A4D2-4677-A593-F16216D5BA38}|QuanLyGameConsole.csproj|solutionrelative:areas\\admin\\controllers\\billcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{21E9E158-A4D2-4677-A593-F16216D5BA38}|QuanLyGameConsole.csproj|c:\\users\\admin\\source\\repos\\quanlygameconsole\\views\\home\\contact.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{21E9E158-A4D2-4677-A593-F16216D5BA38}|QuanLyGameConsole.csproj|solutionrelative:views\\home\\contact.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{21E9E158-A4D2-4677-A593-F16216D5BA38}|QuanLyGameConsole.csproj|c:\\users\\admin\\source\\repos\\quanlygameconsole\\models\\productcomment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{21E9E158-A4D2-4677-A593-F16216D5BA38}|QuanLyGameConsole.csproj|solutionrelative:models\\productcomment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{21E9E158-A4D2-4677-A593-F16216D5BA38}|QuanLyGameConsole.csproj|c:\\users\\admin\\source\\repos\\quanlygameconsole\\areas\\admin\\controllers\\contactcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{21E9E158-A4D2-4677-A593-F16216D5BA38}|QuanLyGameConsole.csproj|solutionrelative:areas\\admin\\controllers\\contactcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{21E9E158-A4D2-4677-A593-F16216D5BA38}|QuanLyGameConsole.csproj|c:\\users\\admin\\source\\repos\\quanlygameconsole\\areas\\admin\\views\\contact\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{21E9E158-A4D2-4677-A593-F16216D5BA38}|QuanLyGameConsole.csproj|solutionrelative:areas\\admin\\views\\contact\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{21E9E158-A4D2-4677-A593-F16216D5BA38}|QuanLyGameConsole.csproj|c:\\users\\admin\\source\\repos\\quanlygameconsole\\areas\\admin\\views\\comment\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{21E9E158-A4D2-4677-A593-F16216D5BA38}|QuanLyGameConsole.csproj|solutionrelative:areas\\admin\\views\\comment\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{21E9E158-A4D2-4677-A593-F16216D5BA38}|QuanLyGameConsole.csproj|c:\\users\\admin\\source\\repos\\quanlygameconsole\\areas\\admin\\views\\comment\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{21E9E158-A4D2-4677-A593-F16216D5BA38}|QuanLyGameConsole.csproj|solutionrelative:areas\\admin\\views\\comment\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{21E9E158-A4D2-4677-A593-F16216D5BA38}|QuanLyGameConsole.csproj|c:\\users\\admin\\source\\repos\\quanlygameconsole\\areas\\admin\\views\\comment\\reply.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{21E9E158-A4D2-4677-A593-F16216D5BA38}|QuanLyGameConsole.csproj|solutionrelative:areas\\admin\\views\\comment\\reply.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{21E9E158-A4D2-4677-A593-F16216D5BA38}|QuanLyGameConsole.csproj|c:\\users\\speak\\onedrive\\desktop\\quanlygameconsole\\repository\\seeddata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{21E9E158-A4D2-4677-A593-F16216D5BA38}|QuanLyGameConsole.csproj|solutionrelative:repository\\seeddata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -61,163 +33,72 @@
           "SelectedChildIndex": 1,
           "Children": [
             {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Product.cs",
-              "DocumentMoniker": "C:\\Users\\Admin\\source\\repos\\QuanLyGameConsole\\Models\\Product.cs",
-              "RelativeDocumentMoniker": "Models\\Product.cs",
-              "ToolTip": "C:\\Users\\Admin\\source\\repos\\QuanLyGameConsole\\Models\\Product.cs",
-              "RelativeToolTip": "Models\\Product.cs",
-              "ViewState": "AgIAACMAAAAAAAAAAAAmwCsAAAA3AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-15T11:39:25.121Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "edit.cshtml",
-              "DocumentMoniker": "C:\\Users\\Admin\\source\\repos\\QuanLyGameConsole\\Areas\\Admin\\Views\\Product\\edit.cshtml",
-              "RelativeDocumentMoniker": "Areas\\Admin\\Views\\Product\\edit.cshtml",
-              "ToolTip": "C:\\Users\\Admin\\source\\repos\\QuanLyGameConsole\\Areas\\Admin\\Views\\Product\\edit.cshtml",
-              "RelativeToolTip": "Areas\\Admin\\Views\\Product\\edit.cshtml",
-              "ViewState": "AgIAABcAAAAAAAAAAAAgwCcAAAARAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-08-15T11:37:33.719Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Privacy.cshtml",
-              "DocumentMoniker": "C:\\Users\\Admin\\source\\repos\\QuanLyGameConsole\\Views\\Home\\Privacy.cshtml",
-              "RelativeDocumentMoniker": "Views\\Home\\Privacy.cshtml",
-              "ToolTip": "C:\\Users\\Admin\\source\\repos\\QuanLyGameConsole\\Views\\Home\\Privacy.cshtml",
-              "RelativeToolTip": "Views\\Home\\Privacy.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-08-15T11:30:53.561Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "HomeController.cs",
-              "DocumentMoniker": "C:\\Users\\Admin\\source\\repos\\QuanLyGameConsole\\Controllers\\HomeController.cs",
-              "RelativeDocumentMoniker": "Controllers\\HomeController.cs",
-              "ToolTip": "C:\\Users\\Admin\\source\\repos\\QuanLyGameConsole\\Controllers\\HomeController.cs",
-              "RelativeToolTip": "Controllers\\HomeController.cs",
-              "ViewState": "AgIAABkBAAAAAAAAAAAQwDUBAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-15T11:28:36.7Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "BillController.cs",
-              "DocumentMoniker": "C:\\Users\\Admin\\source\\repos\\QuanLyGameConsole\\Areas\\Admin\\Controllers\\BillController.cs",
-              "RelativeDocumentMoniker": "Areas\\Admin\\Controllers\\BillController.cs",
-              "ToolTip": "C:\\Users\\Admin\\source\\repos\\QuanLyGameConsole\\Areas\\Admin\\Controllers\\BillController.cs",
-              "RelativeToolTip": "Areas\\Admin\\Controllers\\BillController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-15T11:28:26.42Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "Contact.cshtml",
-              "DocumentMoniker": "C:\\Users\\Admin\\source\\repos\\QuanLyGameConsole\\Views\\Home\\Contact.cshtml",
-              "RelativeDocumentMoniker": "Views\\Home\\Contact.cshtml",
-              "ToolTip": "C:\\Users\\Admin\\source\\repos\\QuanLyGameConsole\\Views\\Home\\Contact.cshtml",
-              "RelativeToolTip": "Views\\Home\\Contact.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-08-15T11:27:48.739Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "ProductComment.cs",
-              "DocumentMoniker": "C:\\Users\\Admin\\source\\repos\\QuanLyGameConsole\\Models\\ProductComment.cs",
-              "RelativeDocumentMoniker": "Models\\ProductComment.cs",
-              "ToolTip": "C:\\Users\\Admin\\source\\repos\\QuanLyGameConsole\\Models\\ProductComment.cs",
-              "RelativeToolTip": "Models\\ProductComment.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-15T11:25:01.384Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "ContactController.cs",
-              "DocumentMoniker": "C:\\Users\\Admin\\source\\repos\\QuanLyGameConsole\\Areas\\Admin\\Controllers\\ContactController.cs",
-              "RelativeDocumentMoniker": "Areas\\Admin\\Controllers\\ContactController.cs",
-              "ToolTip": "C:\\Users\\Admin\\source\\repos\\QuanLyGameConsole\\Areas\\Admin\\Controllers\\ContactController.cs",
-              "RelativeToolTip": "Areas\\Admin\\Controllers\\ContactController.cs",
-              "ViewState": "AgIAABoAAAAAAAAAAAAgwAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-15T11:24:19.833Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\Admin\\source\\repos\\QuanLyGameConsole\\Areas\\Admin\\Views\\Contact\\Index.cshtml",
-              "RelativeDocumentMoniker": "Areas\\Admin\\Views\\Contact\\Index.cshtml",
-              "ToolTip": "C:\\Users\\Admin\\source\\repos\\QuanLyGameConsole\\Areas\\Admin\\Views\\Contact\\Index.cshtml",
-              "RelativeToolTip": "Areas\\Admin\\Views\\Contact\\Index.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-08-15T11:21:29.911Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "Delete.cshtml",
-              "DocumentMoniker": "C:\\Users\\Admin\\source\\repos\\QuanLyGameConsole\\Areas\\Admin\\Views\\Comment\\Delete.cshtml",
-              "RelativeDocumentMoniker": "Areas\\Admin\\Views\\Comment\\Delete.cshtml",
-              "ToolTip": "C:\\Users\\Admin\\source\\repos\\QuanLyGameConsole\\Areas\\Admin\\Views\\Comment\\Delete.cshtml",
-              "RelativeToolTip": "Areas\\Admin\\Views\\Comment\\Delete.cshtml",
-              "ViewState": "AgIAAA8AAAAAAAAAAAAAACQAAAA5AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-08-15T11:01:52.971Z",
-              "EditorCaption": ""
-            },
-            {
               "$type": "Bookmark",
               "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "Reply.cshtml",
-              "DocumentMoniker": "C:\\Users\\Admin\\source\\repos\\QuanLyGameConsole\\Areas\\Admin\\Views\\Comment\\Reply.cshtml",
-              "RelativeDocumentMoniker": "Areas\\Admin\\Views\\Comment\\Reply.cshtml",
-              "ToolTip": "C:\\Users\\Admin\\source\\repos\\QuanLyGameConsole\\Areas\\Admin\\Views\\Comment\\Reply.cshtml",
-              "RelativeToolTip": "Areas\\Admin\\Views\\Comment\\Reply.cshtml",
-              "ViewState": "AgIAABIAAAAAAAAAAAAAAB8AAABcAAAAAAAAAA==",
+              "DocumentIndex": 0,
+              "Title": "Default.cshtml",
+              "DocumentMoniker": "C:\\Users\\speak\\OneDrive\\Desktop\\QuanLyGameConsole\\Views\\Shared\\Components\\Footer\\Default.cshtml",
+              "RelativeDocumentMoniker": "Views\\Shared\\Components\\Footer\\Default.cshtml",
+              "ToolTip": "C:\\Users\\speak\\OneDrive\\Desktop\\QuanLyGameConsole\\Views\\Shared\\Components\\Footer\\Default.cshtml*",
+              "RelativeToolTip": "Views\\Shared\\Components\\Footer\\Default.cshtml*",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAaAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-08-15T10:57:16.621Z",
+              "WhenOpened": "2025-08-15T16:22:23.47Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 2,
               "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\Admin\\source\\repos\\QuanLyGameConsole\\Areas\\Admin\\Views\\Comment\\Index.cshtml",
-              "RelativeDocumentMoniker": "Areas\\Admin\\Views\\Comment\\Index.cshtml",
-              "ToolTip": "C:\\Users\\Admin\\source\\repos\\QuanLyGameConsole\\Areas\\Admin\\Views\\Comment\\Index.cshtml",
-              "RelativeToolTip": "Areas\\Admin\\Views\\Comment\\Index.cshtml",
-              "ViewState": "AgIAAAoAAAAAAAAAAAApwCUAAAAVAAAAAAAAAA==",
+              "DocumentMoniker": "C:\\Users\\speak\\OneDrive\\Desktop\\QuanLyGameConsole\\Views\\Product\\Index.cshtml",
+              "RelativeDocumentMoniker": "Views\\Product\\Index.cshtml",
+              "ToolTip": "C:\\Users\\speak\\OneDrive\\Desktop\\QuanLyGameConsole\\Views\\Product\\Index.cshtml",
+              "RelativeToolTip": "Views\\Product\\Index.cshtml",
+              "ViewState": "AgIAAHUAAAAAAAAAAAAAAIAAAABvAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-08-15T10:49:03.216Z",
+              "WhenOpened": "2025-08-15T16:08:51.148Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "_HeroSlider.cshtml",
+              "DocumentMoniker": "C:\\Users\\speak\\OneDrive\\Desktop\\QuanLyGameConsole\\Views\\Shared\\_HeroSlider.cshtml",
+              "RelativeDocumentMoniker": "Views\\Shared\\_HeroSlider.cshtml",
+              "ToolTip": "C:\\Users\\speak\\OneDrive\\Desktop\\QuanLyGameConsole\\Views\\Shared\\_HeroSlider.cshtml",
+              "RelativeToolTip": "Views\\Shared\\_HeroSlider.cshtml",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAAABkAAAAqAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-08-15T15:51:31.126Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Slider.cs",
+              "DocumentMoniker": "C:\\Users\\speak\\OneDrive\\Desktop\\QuanLyGameConsole\\Models\\Slider.cs",
+              "RelativeDocumentMoniker": "Models\\Slider.cs",
+              "ToolTip": "C:\\Users\\speak\\OneDrive\\Desktop\\QuanLyGameConsole\\Models\\Slider.cs",
+              "RelativeToolTip": "Models\\Slider.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-15T15:52:12.802Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "SeedData.cs",
+              "DocumentMoniker": "C:\\Users\\speak\\OneDrive\\Desktop\\QuanLyGameConsole\\Repository\\SeedData.cs",
+              "RelativeDocumentMoniker": "Repository\\SeedData.cs",
+              "ToolTip": "C:\\Users\\speak\\OneDrive\\Desktop\\QuanLyGameConsole\\Repository\\SeedData.cs",
+              "RelativeToolTip": "Repository\\SeedData.cs",
+              "ViewState": "AgIAAD0AAAAAAAAAAAAQwEsAAAAgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-15T15:01:43.894Z",
               "EditorCaption": ""
             }
           ]
