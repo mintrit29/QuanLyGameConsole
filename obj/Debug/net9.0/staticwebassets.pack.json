@@ -21,16 +21,132 @@
       "PackagePath": "staticwebassets\\Images\\Artboard-1.jpg"
     },
     {
+      "Id": "C:\\Users\\Admin\\Source\\Repos\\QuanLyGameConsole\\wwwroot\\Images\\Nintendo-64-2.png",
+      "PackagePath": "staticwebassets\\Images\\Nintendo-64-2.png"
+    },
+    {
+      "Id": "C:\\Users\\Admin\\Source\\Repos\\QuanLyGameConsole\\wwwroot\\Images\\Nintendo-64-3.png",
+      "PackagePath": "staticwebassets\\Images\\Nintendo-64-3.png"
+    },
+    {
+      "Id": "C:\\Users\\Admin\\Source\\Repos\\QuanLyGameConsole\\wwwroot\\Images\\Nintendo-64.png",
+      "PackagePath": "staticwebassets\\Images\\Nintendo-64.png"
+    },
+    {
+      "Id": "C:\\Users\\Admin\\Source\\Repos\\QuanLyGameConsole\\wwwroot\\Images\\Nintendo-Switch-2.png",
+      "PackagePath": "staticwebassets\\Images\\Nintendo-Switch-2.png"
+    },
+    {
+      "Id": "C:\\Users\\Admin\\Source\\Repos\\QuanLyGameConsole\\wwwroot\\Images\\Nintendo-Switch-3.png",
+      "PackagePath": "staticwebassets\\Images\\Nintendo-Switch-3.png"
+    },
+    {
+      "Id": "C:\\Users\\Admin\\Source\\Repos\\QuanLyGameConsole\\wwwroot\\Images\\Nintendo-Switch.png",
+      "PackagePath": "staticwebassets\\Images\\Nintendo-Switch.png"
+    },
+    {
+      "Id": "C:\\Users\\Admin\\Source\\Repos\\QuanLyGameConsole\\wwwroot\\Images\\Playstation-1-2.png",
+      "PackagePath": "staticwebassets\\Images\\Playstation-1-2.png"
+    },
+    {
+      "Id": "C:\\Users\\Admin\\Source\\Repos\\QuanLyGameConsole\\wwwroot\\Images\\Playstation-1-3.png",
+      "PackagePath": "staticwebassets\\Images\\Playstation-1-3.png"
+    },
+    {
+      "Id": "C:\\Users\\Admin\\Source\\Repos\\QuanLyGameConsole\\wwwroot\\Images\\Playstation-1.png",
+      "PackagePath": "staticwebassets\\Images\\Playstation-1.png"
+    },
+    {
+      "Id": "C:\\Users\\Admin\\Source\\Repos\\QuanLyGameConsole\\wwwroot\\Images\\Playstation-Portable-2.png",
+      "PackagePath": "staticwebassets\\Images\\Playstation-Portable-2.png"
+    },
+    {
+      "Id": "C:\\Users\\Admin\\Source\\Repos\\QuanLyGameConsole\\wwwroot\\Images\\Playstation-Portable-3.png",
+      "PackagePath": "staticwebassets\\Images\\Playstation-Portable-3.png"
+    },
+    {
+      "Id": "C:\\Users\\Admin\\Source\\Repos\\QuanLyGameConsole\\wwwroot\\Images\\Playstation-Portable.png",
+      "PackagePath": "staticwebassets\\Images\\Playstation-Portable.png"
+    },
+    {
+      "Id": "C:\\Users\\Admin\\Source\\Repos\\QuanLyGameConsole\\wwwroot\\Images\\Sega-Dreamcast-2.png",
+      "PackagePath": "staticwebassets\\Images\\Sega-Dreamcast-2.png"
+    },
+    {
+      "Id": "C:\\Users\\Admin\\Source\\Repos\\QuanLyGameConsole\\wwwroot\\Images\\Sega-Dreamcast-3.png",
+      "PackagePath": "staticwebassets\\Images\\Sega-Dreamcast-3.png"
+    },
+    {
+      "Id": "C:\\Users\\Admin\\Source\\Repos\\QuanLyGameConsole\\wwwroot\\Images\\Sega-Dreamcast.png",
+      "PackagePath": "staticwebassets\\Images\\Sega-Dreamcast.png"
+    },
+    {
+      "Id": "C:\\Users\\Admin\\Source\\Repos\\QuanLyGameConsole\\wwwroot\\Images\\Sega-Game-Gear-2.png",
+      "PackagePath": "staticwebassets\\Images\\Sega-Game-Gear-2.png"
+    },
+    {
+      "Id": "C:\\Users\\Admin\\Source\\Repos\\QuanLyGameConsole\\wwwroot\\Images\\Sega-Game-Gear-3.png",
+      "PackagePath": "staticwebassets\\Images\\Sega-Game-Gear-3.png"
+    },
+    {
+      "Id": "C:\\Users\\Admin\\Source\\Repos\\QuanLyGameConsole\\wwwroot\\Images\\Sega-Game-Gear.png",
+      "PackagePath": "staticwebassets\\Images\\Sega-Game-Gear.png"
+    },
+    {
+      "Id": "C:\\Users\\Admin\\Source\\Repos\\QuanLyGameConsole\\wwwroot\\Images\\Xbox-360-2.png",
+      "PackagePath": "staticwebassets\\Images\\Xbox-360-2.png"
+    },
+    {
+      "Id": "C:\\Users\\Admin\\Source\\Repos\\QuanLyGameConsole\\wwwroot\\Images\\Xbox-360-3.png",
+      "PackagePath": "staticwebassets\\Images\\Xbox-360-3.png"
+    },
+    {
+      "Id": "C:\\Users\\Admin\\Source\\Repos\\QuanLyGameConsole\\wwwroot\\Images\\Xbox-360.png",
+      "PackagePath": "staticwebassets\\Images\\Xbox-360.png"
+    },
+    {
+      "Id": "C:\\Users\\Admin\\Source\\Repos\\QuanLyGameConsole\\wwwroot\\Images\\Xbox-One-2.png",
+      "PackagePath": "staticwebassets\\Images\\Xbox-One-2.png"
+    },
+    {
+      "Id": "C:\\Users\\Admin\\Source\\Repos\\QuanLyGameConsole\\wwwroot\\Images\\Xbox-One-3.png",
+      "PackagePath": "staticwebassets\\Images\\Xbox-One-3.png"
+    },
+    {
+      "Id": "C:\\Users\\Admin\\Source\\Repos\\QuanLyGameConsole\\wwwroot\\Images\\Xbox-One.png",
+      "PackagePath": "staticwebassets\\Images\\Xbox-One.png"
+    },
+    {
       "Id": "C:\\Users\\Admin\\Source\\Repos\\QuanLyGameConsole\\wwwroot\\Images\\angryEmotion.jpg",
       "PackagePath": "staticwebassets\\Images\\angryEmotion.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Admin\\Source\\Repos\\QuanLyGameConsole\\wwwroot\\Images\\angryEmotion.png",
+      "PackagePath": "staticwebassets\\Images\\angryEmotion.png"
     },
     {
       "Id": "C:\\Users\\Admin\\Source\\Repos\\QuanLyGameConsole\\wwwroot\\Images\\c0150824-7de3-44ac-b070-61fece81b1ed_Untitled.jpg",
       "PackagePath": "staticwebassets\\Images\\c0150824-7de3-44ac-b070-61fece81b1ed_Untitled.jpg"
     },
     {
-      "Id": "C:\\Users\\Admin\\Source\\Repos\\QuanLyGameConsole\\wwwroot\\Images\\logo\\0bbe1cee-793a-4b21-ba59-30dd55046543_Untitled.jpg",
-      "PackagePath": "staticwebassets\\Images\\logo\\0bbe1cee-793a-4b21-ba59-30dd55046543_Untitled.jpg"
+      "Id": "C:\\Users\\Admin\\Source\\Repos\\QuanLyGameConsole\\wwwroot\\Images\\cas.jpg",
+      "PackagePath": "staticwebassets\\Images\\cas.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Admin\\Source\\Repos\\QuanLyGameConsole\\wwwroot\\Images\\logo\\Logo-Game-Store.png",
+      "PackagePath": "staticwebassets\\Images\\logo\\Logo-Game-Store.png"
+    },
+    {
+      "Id": "C:\\Users\\Admin\\Source\\Repos\\QuanLyGameConsole\\wwwroot\\Images\\slide-2.png",
+      "PackagePath": "staticwebassets\\Images\\slide-2.png"
+    },
+    {
+      "Id": "C:\\Users\\Admin\\Source\\Repos\\QuanLyGameConsole\\wwwroot\\Images\\slide-3.png",
+      "PackagePath": "staticwebassets\\Images\\slide-3.png"
+    },
+    {
+      "Id": "C:\\Users\\Admin\\Source\\Repos\\QuanLyGameConsole\\wwwroot\\Images\\slide.png",
+      "PackagePath": "staticwebassets\\Images\\slide.png"
     },
     {
       "Id": "C:\\Users\\Admin\\Source\\Repos\\QuanLyGameConsole\\wwwroot\\Images\\support.png",

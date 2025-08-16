@@ -9,14 +9,13 @@ namespace QuanLyGameConsole.Models
         public int ProductId { get; set; }
         [Column(TypeName = "nvarchar(100)")]
         public string? Image { get; set; }
-       
+
         public string? ProductName { get; set; }
 
         public int? CategoryId { get; set; }
-
+        public virtual Category? Category { get; set; }
         public int? BrandId { get; set; }
-
-
+      
         public double? Price { get; set; }
         [Column(TypeName = "nvarchar(200)")]
         public string? ShortDescription { get; set; }
@@ -39,10 +38,6 @@ namespace QuanLyGameConsole.Models
         [Column(TypeName = "varchar(100)")]
         public string? Slug { get; set; }
 
-        public virtual Brand? Brand { get; set; }
-
-        public virtual Category? Category { get; set; }
-
         public virtual ICollection<Favorite> Favorites { get; set; } = new List<Favorite>();
 
         public virtual ICollection<Invoice> Invoices { get; set; } = new List<Invoice>();
@@ -52,6 +47,5 @@ namespace QuanLyGameConsole.Models
         public virtual ICollection<ProductImage> ProductImages { get; set; } = new List<ProductImage>();
 
         public virtual ICollection<ProductRating> ProductRatings { get; set; } = new List<ProductRating>();
-
     }
 }

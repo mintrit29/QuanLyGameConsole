@@ -2,6 +2,7 @@
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using QuanLyGameConsole.Models;
 
@@ -17,52 +18,50 @@ namespace QuanLyGameConsole.Areas.Admin.Controllers
         {
             _context = context;
         }
-        [HttpPost]
-        public IActionResult Delete(int id)
+
+        // GET: Danh sách sản phẩm
+        public async Task<IActionResult> Index()
         {
-            var product = _context.Products.Find(id);
-            if (product == null)
-            {
-                TempData["error"] = "Sản phẩm không tồn tại.";
-                return RedirectToAction("Index");
-            }
-
-            try
-            {
-                _context.Products.Remove(product);
-                _context.SaveChanges();
-                TempData["success"] = "Xóa sản phẩm thành công.";
-            }
-            catch
-            {
-                TempData["error"] = "Xóa sản phẩm thất bại.";
-            }
-
-            return RedirectToAction("Index");
+            var products = await _context.Products
+     .Include(p => p.Category) // Removed the 'Brand' include
+     .OrderByDescending(p => p.ProductId)
+     .ToListAsync();
+            return View(products);
         }
 
-        // GET: Hiển thị form thêm sản phẩm
+        // GET: Form thêm sản phẩm
         [HttpGet]
         public IActionResult Create()
         {
+            ViewBag.Categories = _context.Categories
+                .Select(c => new SelectListItem
+                {
+                    Value = c.CategoryId.ToString(),
+                    Text = c.CategoryName
+                }).ToList();
+
+            ViewBag.Brands = _context.Brands
+                .Select(b => new SelectListItem
+                {
+                    Value = b.BrandId.ToString(),
+               
+                }).ToList();
+
             return View(new Product());
         }
 
-        // POST: Xử lý thêm sản phẩm
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(Product product, IFormFile? Image)
         {
             if (ModelState.IsValid)
             {
-                // Nếu có upload ảnh
-                if (Image != null)
+                // Upload ảnh
+                if (Image != null && Image.Length > 0)
                 {
-                    var uploadsFolder = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "images");
+                    var uploadsFolder = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "Images");
                     if (!Directory.Exists(uploadsFolder))
-                    {
                         Directory.CreateDirectory(uploadsFolder);
-                    }
 
                     string fileName = Path.GetFileName(Image.FileName);
                     string filePath = Path.Combine(uploadsFolder, fileName);
@@ -72,17 +71,16 @@ namespace QuanLyGameConsole.Areas.Admin.Controllers
                         await Image.CopyToAsync(file);
                     }
 
-                    product.Image = "/images/" + fileName;
+                    product.Image = "" + fileName;
                 }
                 else
                 {
-                    // Nếu không upload ảnh, set ảnh mặc định
                     product.Image = "/images/no-image.png";
                 }
 
                 product.CreatedAt = DateTime.Now;
                 product.UpdatedAt = DateTime.Now;
-                product.Status = 1; // Mặc định hiển thị
+                product.Status = 1;
 
                 _context.Products.Add(product);
                 await _context.SaveChangesAsync();
@@ -91,22 +89,26 @@ namespace QuanLyGameConsole.Areas.Admin.Controllers
                 return RedirectToAction(nameof(Index));
             }
 
+            // Load lại dropdown nếu có lỗi
+            ViewBag.Categories = _context.Categories
+                .Select(c => new SelectListItem
+                {
+                    Value = c.CategoryId.ToString(),
+                    Text = c.CategoryName
+                }).ToList();
+
+            ViewBag.Brands = _context.Brands
+                .Select(b => new SelectListItem
+                {
+                    Value = b.BrandId.ToString(),
+                   
+                }).ToList();
+
             TempData["error"] = "Vui lòng nhập đầy đủ thông tin!";
             return View(product);
         }
 
-        // GET: Danh sách sản phẩm
-        public async Task<IActionResult> Index()
-        {
-            var products = await _context.Products
-                .Include(p => p.Brand)
-                .Include(p => p.Category)
-                .OrderByDescending(p => p.ProductId)
-                .ToListAsync();
-            return View(products);
-        }
-
-        // GET: Hiển thị form chỉnh sửa
+        // GET: Form chỉnh sửa
         [HttpGet]
         public async Task<IActionResult> Edit(int id)
         {
@@ -116,13 +118,21 @@ namespace QuanLyGameConsole.Areas.Admin.Controllers
                 TempData["error"] = "Không tìm thấy sản phẩm";
                 return RedirectToAction(nameof(Index));
             }
+
+            ViewBag.Categories = _context.Categories
+     .Select(c => new SelectListItem
+     {
+         Value = c.CategoryId.ToString(),
+         Text = c.CategoryName
+     }).ToList();
+
             return View(product);
         }
 
-        // POST: Xử lý cập nhật sản phẩm
+        // POST: Xử lý chỉnh sửa
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, Product product, IFormFile? imageFile)
+        public async Task<IActionResult> Edit(int id, Product product, IFormFile? Image)
         {
             if (id != product.ProductId)
             {
@@ -132,35 +142,48 @@ namespace QuanLyGameConsole.Areas.Admin.Controllers
 
             if (ModelState.IsValid)
             {
-                var existingProduct = await _context.Products.AsNoTracking().FirstOrDefaultAsync(p => p.ProductId == id);
+                var existingProduct = await _context.Products.AsNoTracking()
+                    .FirstOrDefaultAsync(p => p.ProductId == id);
                 if (existingProduct == null)
                 {
                     TempData["error"] = "Không tìm thấy sản phẩm";
                     return RedirectToAction(nameof(Index));
                 }
 
-                // Nếu upload ảnh mới
-                if (imageFile != null && imageFile.Length > 0)
+                var uploadsFolder = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "Images");
+                if (!Directory.Exists(uploadsFolder))
+                    Directory.CreateDirectory(uploadsFolder);
+
+                // Nếu có upload ảnh mới
+                if (Image != null && Image.Length > 0)
                 {
-                    var uploadsFolder = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "images");
-                    if (!Directory.Exists(uploadsFolder))
+                    // Xóa ảnh cũ nếu tồn tại
+                    if (!string.IsNullOrEmpty(existingProduct.Image))
                     {
-                        Directory.CreateDirectory(uploadsFolder);
+                        var oldImagePath = Path.Combine(uploadsFolder, existingProduct.Image);
+                        if (System.IO.File.Exists(oldImagePath))
+                        {
+                            System.IO.File.Delete(oldImagePath);
+                        }
                     }
 
-                    string fileName = Path.GetFileName(imageFile.FileName);
+                    // Tạo tên file mới duy nhất
+                    string fileExt = Path.GetExtension(Image.FileName);
+                    string fileName = Guid.NewGuid().ToString() + fileExt;
                     string filePath = Path.Combine(uploadsFolder, fileName);
 
+                    // Lưu ảnh mới
                     using (var stream = new FileStream(filePath, FileMode.Create))
                     {
-                        await imageFile.CopyToAsync(stream);
+                        await Image.CopyToAsync(stream);
                     }
 
-                    product.Image = "/images/" + fileName;
+                    product.Image = fileName;
                 }
                 else
                 {
-                    product.Image = existingProduct.Image; // Giữ ảnh cũ
+                    // Giữ lại ảnh cũ nếu không upload
+                    product.Image = existingProduct.Image;
                 }
 
                 product.UpdatedAt = DateTime.Now;
@@ -171,10 +194,41 @@ namespace QuanLyGameConsole.Areas.Admin.Controllers
                 return RedirectToAction(nameof(Index));
             }
 
-            TempData["error"] = "Dữ liệu không hợp lệ!";
             return View(product);
         }
 
+
+        // Xóa sản phẩm + dữ liệu liên quan
+        [HttpPost]
+        public async Task<IActionResult> Delete(int id)
+        {
+            try
+            {
+                var product = await _context.Products.FindAsync(id);
+                if (product == null)
+                {
+                    TempData["error"] = "Không tìm thấy sản phẩm";
+                    return RedirectToAction(nameof(Index));
+                }
+
+                _context.ProductComments.RemoveRange(_context.ProductComments.Where(c => c.ProductId == id));
+                _context.ProductRatings.RemoveRange(_context.ProductRatings.Where(r => r.ProductId == id));
+                _context.ProductImages.RemoveRange(_context.ProductImages.Where(i => i.ProductId == id));
+                _context.Favorites.RemoveRange(_context.Favorites.Where(f => f.ProductId == id));
+                _context.Products.Remove(product);
+
+                await _context.SaveChangesAsync();
+                TempData["success"] = "Xóa sản phẩm thành công!";
+            }
+            catch (Exception ex)
+            {
+                TempData["error"] = "Xóa sản phẩm thất bại: " + ex.Message;
+            }
+
+            return RedirectToAction(nameof(Index));
+        }
+
+        // Ẩn sản phẩm
         [HttpPost]
         public async Task<IActionResult> HideProduct(int id)
         {
@@ -185,7 +239,6 @@ namespace QuanLyGameConsole.Areas.Admin.Controllers
                 product.UpdatedAt = DateTime.Now;
                 _context.Update(product);
                 await _context.SaveChangesAsync();
-
                 TempData["success"] = "Sản phẩm đã bị ẩn!";
             }
             else
@@ -195,6 +248,7 @@ namespace QuanLyGameConsole.Areas.Admin.Controllers
             return RedirectToAction(nameof(Index));
         }
 
+        // Hiện sản phẩm
         [HttpPost]
         public async Task<IActionResult> ShowProduct(int id)
         {
@@ -205,26 +259,7 @@ namespace QuanLyGameConsole.Areas.Admin.Controllers
                 product.UpdatedAt = DateTime.Now;
                 _context.Update(product);
                 await _context.SaveChangesAsync();
-
                 TempData["success"] = "Sản phẩm đã hiển thị lại!";
-            }
-            else
-            {
-                TempData["error"] = "Không tìm thấy sản phẩm";
-            }
-            return RedirectToAction(nameof(Index));
-        }
-
-        [HttpPost]
-        public async Task<IActionResult> DeleteProduct(int id)
-        {
-            var product = await _context.Products.FindAsync(id);
-            if (product != null)
-            {
-                _context.Products.Remove(product);
-                await _context.SaveChangesAsync();
-
-                TempData["success"] = "Sản phẩm đã được xóa!";
             }
             else
             {

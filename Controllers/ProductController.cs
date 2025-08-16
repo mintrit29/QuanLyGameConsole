@@ -38,18 +38,7 @@ namespace QuanLyGameConsole.Controllers
             }
 
             // Lọc theo brand
-            if (!string.IsNullOrEmpty(brands))
-            {
-                products = products.Where(p => p.Brand!.Slug == brands);
-            }
-            if (minPrice.HasValue)
-            {
-                products = products.Where(p => p.Price >= minPrice.Value);
-            }
-            if (maxPrice.HasValue)
-            {
-                products = products.Where(p => p.Price <= maxPrice.Value);
-            }
+           
 
             // Lấy tổng số sản phẩm sau khi đã áp dụng TẤT CẢ bộ lọc
             var totalProducts = await products.CountAsync();
@@ -136,7 +125,7 @@ namespace QuanLyGameConsole.Controllers
             // Lấy sản phẩm, đánh giá, và bình luận từ cơ sở dữ liệu
             var product = await _context.Products
                 .Include(p => p.Category)
-                .Include(p => p.Brand)
+              
                 .Include(p => p.ProductImages)
                 .Include(p => p.ProductComments).ThenInclude(productComment => productComment.Customer)
                 .Include(p => p.ProductRatings)
